@@ -1,0 +1,113 @@
+/* Import a cool font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap');
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #111;
+  --accent-color: #0077ff;
+  --card-bg: #f3f3f3;
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #f0f0f0;
+  --card-bg: #1e1e1e;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+header.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #a354df, #041ca4);
+  color: white;
+}
+
+header.hero h1 {
+  font-family: 'Monoton', sans-serif;
+  font-size: 2.5rem;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #133449, 0 0 10px #00bcd4;
+  }
+  to {
+    text-shadow: 0 0 10px #0e2d23, 0 0 20px #0077ff;
+  }
+}
+
+.tagline {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+#darkModeToggle {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: white;
+  color: #0077ff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode #darkModeToggle {
+  background-color: #333;
+  color: #00bcd4;
+}
+
+.profile-image img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 1.5rem auto;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+section {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+section h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  color: var(--accent-color);
+}
+
+.project {
+  background-color: var(--card-bg);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.1);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  font-size: 0.9rem;
+}
