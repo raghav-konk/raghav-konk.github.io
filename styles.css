@@ -3,10 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap');
 
 :root {
-  --bg-color: #ffffff;
+  --bg-color: #f6d692;
   --text-color: #111;
   --accent-color: #0077ff;
-  --card-bg: #f3f3f3;
+  --card-bg: #dddddd;
 }
 
 body.dark-mode {
