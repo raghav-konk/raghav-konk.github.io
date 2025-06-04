@@ -4,9 +4,9 @@
 
 :root {
   --bg-color: #f6d692;
-  --text-color: #111;
+  --text-color: #000000;
   --accent-color: #0077ff;
-  --card-bg: #a0d0ff;
+  --card-bg: #efa0ff;
 }
 
 body.dark-mode {
