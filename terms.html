@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms of Service — Raghavendra Konkathi</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f0eff4;
+      --card: #ffffff;
+      --purple-deep: #3e37c0;
+      --purple-mid: #6b3fa0;
+      --purple-light: #a78bda;
+      --purple-mist: #ede8f8;
+      --text-dark: #1a1224;
+      --text-mid: #4b4260;
+      --text-light: #8e84a8;
+      --border: #ddd8ee;
+      --amber-mist: #fdf6e3;
+      --amber-border: #f0d080;
+      --amber-text: #7a5c00;
+    }
+
+    html, body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: #920133;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-back {
+      font-size: 1rem;
+      font-weight: 500;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: opacity 0.2s;
+    }
+    .nav-back:hover { opacity: 0.7; }
+
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── HEADER ── */
+    .doc-header {
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .doc-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 10px;
+    }
+
+    .doc-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--purple-deep);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .doc-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.8rem;
+    }
+
+    .doc-meta span {
+      background: var(--purple-mist);
+      color: var(--purple-mid);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 26px;
+      margin-bottom: 28px;
+    }
+
+    .toc-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 12px;
+    }
+
+    .toc ol {
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .toc a {
+      font-size: 0.875rem;
+      color: var(--purple-mid);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .toc a:hover { text-decoration: underline; }
+
+    /* ── HIGHLIGHT BOXES ── */
+    .highlight {
+      background: var(--purple-mist);
+      border-left: 3px solid var(--purple-mid);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 14px 0;
+      font-size: 0.9rem;
+      color: var(--purple-deep);
+      font-weight: 500;
+    }
+
+    .warning {
+      background: var(--amber-mist);
+      border-left: 3px solid var(--amber-border);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 14px 0;
+      font-size: 0.9rem;
+      color: var(--amber-text);
+      font-weight: 500;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 30px;
+      margin-bottom: 20px;
+    }
+
+    .section-num {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      color: var(--purple-deep);
+      margin-bottom: 14px;
+    }
+
+    p {
+      font-size: 0.925rem;
+      color: var(--text-mid);
+      margin-bottom: 12px;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    li {
+      font-size: 0.925rem;
+      color: var(--text-mid);
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    a.inline {
+      color: var(--purple-mid);
+      font-weight: 500;
+    }
+    a.inline:hover { text-decoration: underline; }
+
+    strong { color: var(--text-dark); }
+
+    /* ── FOOTER ── */
+    .doc-footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .doc-footer-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.95rem;
+      color: var(--purple-deep);
+    }
+
+    .doc-footer-note {
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+
+    /* ── LEGAL PAGES NAV ── */
+    .legal-nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .legal-nav a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 20px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      color: var(--text-mid);
+      background: var(--card);
+      transition: all 0.2s;
+    }
+
+    .legal-nav a:hover,
+    .legal-nav a.active {
+      background: var(--purple-mist);
+      color: var(--purple-mid);
+      border-color: var(--purple-light);
+    }
+
+    @media (max-width: 560px) {
+      .section { padding: 20px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Raghav's Home</a>
+  <a href="index.html" class="nav-back">← Back to Site</a>
+</nav>
+
+<div class="page">
+
+  <div class="doc-header">
+    <p class="doc-eyebrow">Legal · Terms</p>
+    <h1 class="doc-title">Terms of Service</h1>
+    <div class="doc-meta">
+      <span>Effective: May 25, 2026</span>
+      <span>Last updated: May 25, 2026</span>
+      <span>Site: raghavendra.dev</span>
+    </div>
+  </div>
+
+  <!-- Legal pages quick nav -->
+  <div class="legal-nav">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html" class="active">Terms of Service</a>
+    <a href="disclosure.html">Disclosure &amp; Self-Declaration</a>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <p class="toc-title">Contents</p>
+    <ol>
+      <li><a href="#s1">Acceptance of terms</a></li>
+      <li><a href="#s2">About this website</a></li>
+      <li><a href="#s3">Intellectual property and content ownership</a></li>
+      <li><a href="#s4">Permitted use</a></li>
+      <li><a href="#s5">Prohibited use</a></li>
+      <li><a href="#s6">User-submitted content (contact form)</a></li>
+      <li><a href="#s7">Third-party links and services</a></li>
+      <li><a href="#s8">Disclaimer of warranties</a></li>
+      <li><a href="#s9">Limitation of liability</a></li>
+      <li><a href="#s10">Accuracy of information</a></li>
+      <li><a href="#s11">Governing law</a></li>
+      <li><a href="#s12">Changes to these terms</a></li>
+      <li><a href="#s13">Contact</a></li>
+    </ol>
+  </div>
+
+  <div class="highlight">
+    Plain-language summary: This is a personal portfolio site. You're welcome to browse, read, and share links to it. The content — including all photography, writing, and code — belongs to me. Don't copy or republish it without asking first. That's pretty much it.
+  </div>
+
+  <!-- 1 -->
+  <div class="section" id="s1">
+    <p class="section-num">Section 01</p>
+    <h2>Acceptance of Terms</h2>
+    <p>By accessing or using this website (<strong>raghavendra.dev</strong>, or any subdomain thereof), you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please do not use this site.</p>
+    <p>These terms apply to all visitors, regardless of how you arrived at the site and regardless of whether you submit any information through the contact form.</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="section" id="s2">
+    <p class="section-num">Section 02</p>
+    <h2>About This Website</h2>
+    <p>This is the personal portfolio website of <strong>Raghavendra Konkathi</strong>, an individual developer, designer, and photographer based in Hyderabad, India. The site is used to:</p>
+    <ul>
+      <li>Showcase personal and professional projects.</li>
+      <li>Display original photography.</li>
+      <li>Share technical blog posts and opinions.</li>
+      <li>Provide a means of contact for collaboration and professional enquiries.</li>
+    </ul>
+    <p>This site is not a commercial product, SaaS platform, or business service. No goods or services are sold through this website.</p>
+  </div>
+
+  <!-- 3 -->
+  <div class="section" id="s3">
+    <p class="section-num">Section 03</p>
+    <h2>Intellectual Property and Content Ownership</h2>
+    <p>All content on this website — unless explicitly stated otherwise — is the original work of Raghavendra Konkathi and is protected under applicable copyright law. This includes but is not limited to:</p>
+    <ul>
+      <li><strong>Photography</strong> — all images displayed on this site and linked via Unsplash are original photographs shot by Raghavendra Konkathi using his own equipment.</li>
+      <li><strong>Written content</strong> — all blog posts, project descriptions, biographical text, and page copy.</li>
+      <li><strong>Code and projects</strong> — all source code, project demos, and applications built and displayed on this site.</li>
+      <li><strong>Design</strong> — the visual design, layout, and UI of this website itself.</li>
+    </ul>
+    <div class="highlight">
+      Photography published on Unsplash is available under the Unsplash License, which permits free use for most purposes. Please refer to the Unsplash License terms directly for specifics on what is permitted.
+    </div>
+    <p>You may not reproduce, republish, redistribute, or commercially exploit any content from this site without prior written permission from the owner.</p>
+  </div>
+
+  <!-- 4 -->
+  <div class="section" id="s4">
+    <p class="section-num">Section 04</p>
+    <h2>Permitted Use</h2>
+    <p>You are welcome to:</p>
+    <ul>
+      <li>Browse and read all content on this site for personal, informational, or research purposes.</li>
+      <li>Share links to pages on this site on social media, blogs, or other platforms.</li>
+      <li>Reference or cite content from this site with clear attribution to Raghavendra Konkathi and a link back to the original page.</li>
+      <li>Contact me through the contact form for professional or collaboration enquiries.</li>
+      <li>Download and use photographs from Unsplash in accordance with the Unsplash License.</li>
+    </ul>
+  </div>
+
+  <!-- 5 -->
+  <div class="section" id="s5">
+    <p class="section-num">Section 05</p>
+    <h2>Prohibited Use</h2>
+    <p>You may not use this website or its content to:</p>
+    <ul>
+      <li>Copy, reproduce, or republish any original written content, photography, or code without explicit written permission.</li>
+      <li>Use any content for commercial purposes without prior agreement.</li>
+      <li>Scrape, crawl, or systematically extract data from this site using automated tools.</li>
+      <li>Attempt to gain unauthorised access to any part of the site, its server, or any connected systems.</li>
+      <li>Introduce malware, viruses, or any malicious code.</li>
+      <li>Impersonate Raghavendra Konkathi or misrepresent an affiliation with this site.</li>
+      <li>Use the contact form to send spam, unsolicited promotional material, or abusive messages.</li>
+    </ul>
+    <div class="warning">
+      Unauthorised use of original photography or written content may constitute copyright infringement and could result in legal action under applicable Indian and international copyright law.
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="section" id="s6">
+    <p class="section-num">Section 06</p>
+    <h2>User-Submitted Content (Contact Form)</h2>
+    <p>When you submit a message through the contact form, you confirm that:</p>
+    <ul>
+      <li>The information you provide is accurate and truthful.</li>
+      <li>You are not submitting spam, fraudulent, or harmful content.</li>
+      <li>You consent to your submitted information being used solely to respond to your enquiry, as described in the <a href="privacy-policy.html" class="inline">Privacy Policy</a>.</li>
+    </ul>
+    <p>I reserve the right to ignore, delete, or block submissions that are abusive, spammy, or made in bad faith.</p>
+  </div>
+
+  <!-- 7 -->
+  <div class="section" id="s7">
+    <p class="section-num">Section 07</p>
+    <h2>Third-Party Links and Services</h2>
+    <p>This site contains links to external websites and platforms, including GitHub, LinkedIn, Medium, Unsplash, and others. These links are provided for convenience and informational purposes only.</p>
+    <p>I have no control over the content, privacy practices, or availability of third-party sites. Linking to them does not imply endorsement of their content or policies. You access third-party links entirely at your own risk, and their own terms of service and privacy policies apply.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="section" id="s8">
+    <p class="section-num">Section 08</p>
+    <h2>Disclaimer of Warranties</h2>
+    <p>This website is provided <strong>"as is"</strong> and <strong>"as available"</strong> without any warranties of any kind, either express or implied. To the fullest extent permitted by law, I make no representations or warranties that:</p>
+    <ul>
+      <li>The site will be continuously available, uninterrupted, or error-free.</li>
+      <li>The content is always accurate, current, or complete.</li>
+      <li>The site is free from viruses or other harmful components (though every reasonable effort is made to keep it secure).</li>
+    </ul>
+    <p>Technical blog posts and articles reflect my personal understanding and experience at the time of writing. They are not professional advice and should not be treated as a definitive technical reference.</p>
+  </div>
+
+  <!-- 9 -->
+  <div class="section" id="s9">
+    <p class="section-num">Section 09</p>
+    <h2>Limitation of Liability</h2>
+    <p>To the maximum extent permitted by applicable law, Raghavendra Konkathi shall not be liable for any direct, indirect, incidental, consequential, or special damages arising out of or in connection with:</p>
+    <ul>
+      <li>Your use of, or inability to use, this website.</li>
+      <li>Any reliance placed on content, tutorials, or information published on this site.</li>
+      <li>Any technical errors, downtime, or data loss.</li>
+      <li>Any actions taken based on links or external services referenced here.</li>
+    </ul>
+    <p>This is a personal portfolio site. Please exercise your own judgement when applying any technical content or advice found here.</p>
+  </div>
+
+  <!-- 10 -->
+  <div class="section" id="s10">
+    <p class="section-num">Section 10</p>
+    <h2>Accuracy of Information</h2>
+    <p>While I make every reasonable effort to keep the content on this site accurate and up to date, the nature of a personal portfolio means some sections (such as project descriptions, skill listings, and experience details) may occasionally be behind the current state of affairs.</p>
+    <p>Dates, technologies, and project statuses are updated periodically. If you notice something that appears outdated or incorrect, feel free to reach out and I'll review it.</p>
+  </div>
+
+  <!-- 11 -->
+  <div class="section" id="s11">
+    <p class="section-num">Section 11</p>
+    <h2>Governing Law</h2>
+    <p>These Terms of Service are governed by and construed in accordance with the laws of <strong>India</strong>, specifically as applicable in the state of <strong>Telangana</strong>. Any disputes arising in connection with these terms shall be subject to the exclusive jurisdiction of the courts located in Hyderabad, Telangana, India.</p>
+    <p>If you are accessing this site from outside India, you do so voluntarily and are responsible for compliance with any local laws that may apply to you.</p>
+  </div>
+
+  <!-- 12 -->
+  <div class="section" id="s12">
+    <p class="section-num">Section 12</p>
+    <h2>Changes to These Terms</h2>
+    <p>I reserve the right to update or modify these Terms of Service at any time. Changes will be reflected by updating the "Last updated" date at the top of this page.</p>
+    <p>Since this site has no user account system, I cannot notify you directly of changes. Continued use of the site after any changes constitutes your acceptance of the revised terms. It is your responsibility to check this page periodically.</p>
+  </div>
+
+  <!-- 13 -->
+  <div class="section" id="s13">
+    <p class="section-num">Section 13</p>
+    <h2>Contact</h2>
+    <p>If you have any questions about these Terms of Service, or if you'd like to request permission to use any content from this site, please reach out:</p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:raghavendra.konkathi@gmail.com" class="inline">raghavendra.konkathi@gmail.com</a></li>
+      <li><strong>Location:</strong> Hyderabad, Telangana, India</li>
+    </ul>
+    <p>I aim to respond to all enquiries within 14 calendar days.</p>
+  </div>
+
+  <div class="doc-footer">
+    <span class="doc-footer-name">Raghavendra Konkathi</span>
+    <span class="doc-footer-note">Effective May 25, 2026 · Personal Portfolio Site</span>
+  </div>
+
+</div>
+</body>
+</html>

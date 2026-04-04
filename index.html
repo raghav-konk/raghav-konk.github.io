@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Saira:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.93">
+    <title>Raghavendra Konkathi's Website | Developer & Photographer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .photo-gallery img {
+            transition: all 0.3s ease;
+        }
+        .photo-gallery img:hover {
+            transform: scale(1.03);
+                                                      
+        }
+        .nav-brand {
+  font-family: 'Poppins', sans-serif;
+}
+      .bungee-spice-regular {
+  font-family: "Bungee Spice", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+  
+    </style>
+</head>
+<!-- Remove-->
+<body class="font-sans antialiased text-gray-800 overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-blue-200 shadow-sm z-50">
+        <div class="w-full px-6 lg:px-12">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="nav-brand text-xl font-bold text-indigo-900">🙋🏽‍♂️Raghav's Home</a>
+                </div>
+                <div class="hidden nav-brand md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-indigo-600 transition">Home</a>
+                    <a href="#projects" class="text-gray-700 hover:text-indigo-600 transition">Projects</a>
+                    <a href="experience.html" target="_blank" class="text-gray-700 hover:text-indigo-600 transition">Career and Experience</a>
+                    <a href="#blog" class="text-gray-700 hover:text-indigo-600 transition">Blog</a>
+                    <a href="hobskil.html" target="_blank" class="text-gray-700 hover:text-indigo-600 transition">Hobbies and Skills</a>
+                    <a href="#photography" class="text-gray-700 hover:text-indigo-600 transition">Photography</a>
+                    <a href="#contact" class="text-gray-700 hover:text-indigo-600 transition">Contact</a>
+                                        <div class="relative">
+
+                                            <!-- Trigger -->
+                                            <button id="legal-btn-desktop" 
+                                                class="text-gray-700 hover:text-indigo-600 transition flex items-center gap-1">
+                                                Legal
+                                                <i data-feather="chevron-down" class="w-4 h-4 transition-transform"></i>
+                                            </button>
+
+                                            <!-- Dropdown -->
+                                            <div id="legal-menu-desktop" 
+                                                class="hidden absolute left-0 mt-2 w-56 bg-yellow-200 text-white shadow-lg rounded-lg z-50">
+
+                                                <a href="privacy-policy.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50">
+                                                    Privacy Policy
+                                                </a>
+
+                                                <a href="disclosure.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50">
+                                                    Disclosure & Self-Declaration
+                                                </a>
+
+                                                <a href="terms.html" target="_blank" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50">
+                                                    Terms of Service
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+                    <a href="resume.html" target="_blank" class="block py-2 text-gray-700 hover:text-indigo-600">Resume</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-700">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden nav-brand md:hidden bg-white pb-4 px-4">
+            <a href="#home" class="block py-2 text-gray-700 hover:text-indigo-600">Home</a>
+            <a href="#projects" class="block py-2 text-gray-700 hover:text-indigo-600">Projects</a>
+            <a href="experience.html" target="_blank" class="block py-2 text-gray-700 hover:text-indigo-600">Career and Experience</a>
+            <a href="#blog" class="block py-2 text-gray-700 hover:text-indigo-600">Blog</a>
+            <a href="hobskil.html" target="_blank" class="block py-2 text-gray-700 hover:text-indigo-600">Hobbies and Skills</a>
+            <a href="#photography" class="block py-2 text-gray-700 hover:text-indigo-600">Photography</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-indigo-600">Contact</a>
+                                <div>
+
+                                <!-- Trigger -->
+                                <button id="legal-btn" class="w-full text-left py-2 text-gray-700 flex justify-between items-center">
+                                    Legal
+                                    <i data-feather="chevron-down" class="w-4 h-4"></i>
+                                </button>
+
+                                <!-- Dropdown items -->
+                                <div id="legal-menu" class="hidden pl-4">
+
+                                    <a href="privacy-policy.html" target="_blank" class="block py-2 text-gray-600">Privacy Policy</a>
+
+                                    <a href="disclosure.html" class="block py-2 text-gray-600">
+                                        Disclosure & Self-Declaration
+                                    </a>
+
+                                    <a href="terms.html" class="block py-2 text-gray-600">Terms of Service</a>
+
+                                </div>
+
+                            </div>  
+            <a href="resume.html" target="_blank" class="block py-2 text-gray-700 hover:text-indigo-600">Resume</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white pt-24 pb-20 md:pt-32 md:pb-28 relative overflow-hidden">
+        <div id="vanta-bg" class="absolute inset-0"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="md:flex items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl nav-brand font-bold mb-4">Hi, I'm <span class="text-indigo-100">Raghavendra Konkathi</span></h1>
+                    <hr class="mx-auto my-6">
+                    <h2 class="text-2xl nav-brand md:text-3xl font-semibold mb-6">Developer, Web and Cloud Enthusiast, Android is my side hobby</h2>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6">Focused on CCNA, Linux CLI Tools and Shell Scripting, DevOps practices, AWS, Docker and Kubernetes K8s as of 2026</h2>
+                    <h3 class="text-lg md:text-2xl font-medium text-indigo-200 mb-6">
+    Previous experiences include Admin and Management (Hanay Technologies LLP), Customer Support and Logistics (ex. Amazon), and Teaching
+</h3>
+                    <p class="text-xl mb-8 text-indigo-80 max-w-lg">
+                        I’m a B.Tech grad in Information Technology from Jawaharlal Nehru Technological University, Hyderabad. I also go by <b>Rango Konk</b>, It used to be my gamertag and somehow slowly seeped into becoming my actual online handle. Long story.
+                    </p>
+            <div class="text-xl mb-8 text-indigo-50 max-w-lg font-semibold">
+                <p class="mb-3">Thanks for visiting my site. Here you can:</p>
+                <ul class="list-disc list-outside space-y-2 pl-3">
+    <li>👋 Get to know me</li>
+    <li>🛠️ See what I’ve built and my current projects</li>
+    <li>💼 Explore my work</li>
+    <li>
+        <a href="https://medium.com/@raghavendra.v.konkathi"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="text-indigo-100 hover:text-indigo-200 inline-flex items-center gap-1">
+            ✍🏽 Read my published articles on Medium <span>↗</span>
+        </a> </li>
+    <li>💡 Read my and opinions on different tech stacks</li>
+    
+    
+            </div>
+                    
+                    <p class="text-lg mb-8 text-indigo-100 max-w-lg">
+                        <i>From: Hyderabad, India</i>
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#projects" class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-medium hover:bg-indigo-50 transition">View My Work</a>
+                        <a href="#contact" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-indigo-600 transition">Reach Me</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
+                    <div class="relative">
+                        
+                            <!-- hero section image below with slideshow asset images-->
+                        <div class="relative w-100 aspect-square overflow-hidden rounded-full border-4 border-white shadow-xl">
+  <!-- Slides -->
+  <div id="slider" class="flex w-full h-full transition-transform duration-1000">
+    <img src="Assets/pic1.jpg" alt="Profile 1" class="w-full h-full object-cover flex-shrink-0">
+    <img src="Assets/pic2.jpg" alt="Profile 2" class="w-full h-full object-cover flex-shrink-0">
+    <img src="Assets/pic3.jpg" alt="Profile 3" class="w-full h-full object-cover flex-shrink-0">
+    <img src="Assets/pic4.jpg" alt="Profile 3" class="w-full h-full object-cover flex-shrink-0">
+  </div>
+
+  <!-- Controls -->
+  <button onclick="prevSlide()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white px-2 py-1 rounded-full">‹</button>
+  <button onclick="nextSlide()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white px-2 py-1 rounded-full">›</button>
+</div>
+
+
+
+
+
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-10 md:py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-4xl nav-brand font-bold text-gray-800 mb-4">My Skills</h2>
+                <p class="text-2xl nav-brand text-gray-600 max-w-2xl mx-auto">
+                    In my 29 years (as of 2025) of surviving on this planet, I’ve managed to pick up a few useful skills. After nearly 8 years of tutoring and a year teaching at an international school, explaining things is <br> second nature—these are the areas I’m confident working in.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="code" class="text-red-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Web Development</h3>
+                    <p class="text-gray-600">HTML, CSS, JavaScript, React, Node.js with deep focus in Linux and Shell Scripting. Built a project based on DIGIPIN Initiative by Indian Government</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="shopping-bag" class="text-green-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Customer, Shipping and Delivery Support, Logistics</h3>
+                    <p class="text-gray-600">Hands-on experience in Amazon logistics operations (ex. Amazon), ensuring reliable delivery support and customer experience.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="network" class="w-8 h-8 text-blue-700"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Hands-on Linux Networking & Infrastructure (CCNA Track)</h3>
+                    <p class="text-gray-600">Building a homelab alongside CCNA, with hands-on network configuration, PoE connectivity, and custom Ethernet (RJ45) cabling.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="smartphone" class="text-purple-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Mobile Apps (Experienced in Android)</h3>
+                    <p class="text-gray-600">React Native, Flutter; Swift (in progress). Built and published an LLM-powered quiz app on Amazon Appstore.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="database" class="text-orange-500 w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Databases with SQL</h3>
+                    <p class="text-gray-600">Working knowledge of SQL for querying, data management, and basic database operations. Familiar with SQLite and of course Excel.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="edit" class="text-yellow-800 w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">UI/UX Design, Art and Photography</h3>
+                    <p class="text-gray-600">Figma, Adobe XD, User Research. Experienced Product and macro Photographer with own Lenses and Lighting setups</p>
+                </div>
+            </div> 
+           
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="hobskil.html" rel="noopener noreferrer" class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-800">
+                    View my Hobbies and  Skills Section<i data-feather="arrow-right" class="ml-2 w-5 h-5"></i>
+                </a>
+            </div>
+    </section>
+    
+    
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-blue-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-4xl nav-brand font-bold text-gray-800 mb-4">Featured Projects</h2>
+                <p class="text-2xl nav-brand text-gray-600 max-w-2xl mx-auto">
+                    Here are some of my recent development projects. Feel free to visit the "Projects Section" where you can browse the repositories independently project-by-project
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="portfolio-item rounded-xl overflow-hidden shadow-md relative" data-aos="fade-up" data-aos-delay="100">
+                    <img src="Assets\digipin finalform.gif" alt="Project 1" class="w-full h-64 object-cover">
+                    <div class="portfolio-overlay absolute inset-0 bg-indigo-600 bg-opacity-90 flex flex-col justify-center p-6 opacity-0 transform translate-y-4 transition duration-300">
+                        <h3 class="text-white text-xl font-bold mb-2">DIGIPIN Converter</h3>
+                        <p class="text-indigo-100 mb-4">An app (web-based) that lets you convert DIGIPIN coordinates to Latitude and Longitude Coordinates</p>
+                        <div class="flex space-x-2 mb-4">
+                            <span class="bg-indigo-800 text-white text-xs px-2 py-1 rounded">React</span>
+                            <span class="bg-indigo-800 text-white text-xs px-2 py-1 rounded">Node.js</span>
+                            <span class="bg-indigo-800 text-white text-xs px-2 py-1 rounded">MongoDB</span>
+                        </div>
+                        <a href="https://github.com/raghav-konk/RaghavDIGIPINConv" target="_blank" rel="noopener noreferrer" class="text-white font-medium flex items-center">
+                            View Project <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="portfolio-item rounded-xl overflow-hidden shadow-md relative" data-aos="fade-up" data-aos-delay="200">
+                    <img src="Assets\KymeraQuiZCLiP.gif" alt="Project 2" class="w-full h-64 object-cover">
+                    <div class="portfolio-overlay absolute inset-0 bg-indigo-600 bg-opacity-90 flex flex-col justify-center p-6 opacity-0 transform translate-y-4 transition duration-300">
+                        <h3 class="text-white text-xl font-bold mb-2">Rango KymeraQuizCLip</h3>
+                        <p class="text-indigo-100 mb-4">A Quiz answering Interface for studying with LLMs built on Android and Web</p>
+                        <div class="flex space-x-2 mb-4">
+                            <span class="bg-indigo-800 text-white text-xs px-2 py-1 rounded">React Native</span>
+                            <span class="bg-indigo-800 text-white text-xs px-2 py-1 rounded">Firebase</span>
+                            <span class="bg-indigo-800 text-white text-xs px-2 py-1 rounded">Redux</span>
+                        </div>
+                        <a href="https://github.com/raghav-konk/QuizAppChatGPT" target="_blank" rel="noopener noreferrer" class="text-white font-medium flex items-center">
+                            View Project <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="portfolio-item rounded-xl overflow-hidden shadow-md relative" data-aos="fade-up" data-aos-delay="300">
+                    <img src="Assets\proj3v1.gif" alt="Project 3" class="w-full h-64 object-cover">
+                    <div class="portfolio-overlay absolute inset-0 bg-indigo-600 bg-opacity-90 flex flex-col justify-center p-6 opacity-0 transform translate-y-4 transition duration-300">
+                        <h3 class="text-white text-xl font-bold mb-2">Portfolio Website</h3>
+                        <p class="text-indigo-100 mb-4">Designed the school's official website. Layout, Content and Original Photography</p>
+                        <p class="text-indigo-100 mb-4">Click here to visit the website</p>
+                        <div class="flex space-x-2 mb-4">
+                            <span class="bg-indigo-800 text-white text-xs px-2 py-1 rounded">HTML/CSS</span>
+                            <span class="bg-indigo-800 text-white text-xs px-2 py-1 rounded">JavaScript</span>
+                            <span class="bg-indigo-800 text-white text-xs px-2 py-1 rounded">Tailwind</span>
+                        </div>
+                        <a href="https://cischoolonline.in/" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   class="text-white font-medium flex items-center">
+    View Live Site 
+    <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="projectsbuilt.html" target="_blank" class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-800">
+                    View All Projects <i data-feather="arrow-right" class="ml-2 w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photography Section -->
+    <section id="photography" class="py-16 bg-red-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-4xl nav-brand font-bold text-gray-800 mb-4">Photography</h2>
+                <p class="text-lg nav-brand text-gray-600 max-w-2xl mx-auto">
+                    I shoot with a Canon 7D Mark II and 77D. I own a range of lenses, including macro, along with Godox lighting equipment. I primarily specialize in product photography. You can explore my work on Unsplash, where all images are available for download.
+                </p>
+                <hr class="w-[400px] mx-auto my-4">
+                <p class="text-lg text-gray-500 nav-brand max-w-2xl mx-auto">
+                    Gotta admit, ever since I got my Samsung S23 Ultra, my cameras have started collecting a little too much dust. 😄 But hey, as impressive as it is, nothing quite beats the optical quality, sensor size and color science of my Canons.
+                </p>
+            </div>
+            <div class="photo-gallery grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div class="overflow-hidden rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <img src="Assets\raghavendra-v-konkathi-Bfv8r0g_wlc-unsplash.jpg" alt="macro_needle_thread" class="w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="150">
+                    <img src="Assets\raghavendra-v-konkathi-D8EyZxH4Jjs-unsplash.jpg" alt="100rs note" class="w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <img src="Assets\raghavendra-v-konkathi-bxG4foidTsY-unsplash.jpg" alt="Wooden Cups" class="w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="250">
+                    <img src="Assets\raghavendra-v-konkathi-nhxc4tsVYMA-unsplash.jpg" alt="Eye" class="w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                    <img src="Assets\raghavendra-v-konkathi-OtO6A2GOiCU-unsplash.jpg" alt="Twin Brushes" class="w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="350">
+                    <img src="Assets\raghavendra-v-konkathi-MR9IBnqa7gc-unsplash.jpg" alt="bottle" class="w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="400">
+                    <img src="Assets\raghavendra-v-konkathi-oc2eMmnkZ6Q-unsplash.jpg" alt="xbox" class="w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="450">
+                    <img src="Assets\raghavendra-v-konkathi-MDAt00hx_bM-unsplash.jpg" alt="Rode" class="w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="450">
+                    <img src="Assets\raghavendra-v-konkathi-hlKKTRMlrcc-unsplash.jpg" alt="Rode" class="w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="450">
+                    <img src="Assets\raghavendra-v-konkathi-YM6vYnu4ScQ-unsplash.jpg" alt="Rode" class="w-full h-48 object-cover">
+                </div>
+            </div>
+             <div style="
+  margin: 40px auto;
+  max-width: 850px;
+  padding: 18px 24px;
+  background: linear-gradient(135deg, #d0d9f9, #adfde8);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  text-align: center;
+">
+  <span style="
+    display: inline-block;
+    padding: 4px 10px;
+    background: #4f46e5;
+    color: white;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    margin-bottom: 10px;
+  ">
+    Original Work
+  </span>
+
+  <p style="margin: 0; color: #374151; font-size: 0.95rem; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+    Every image in this Gallery is actually captured by me.
+    No stock photos, No external sources, No AI bullsh*t. <br>
+    Visit <a href="disclosure.html">"<strong>Legal"</strong> section</a> for more info.
+  </p>
+</div>
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href= "https://unsplash.com/@rangokonk/" 
+   target="_blank" class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-800">
+                    View Full Gallery (in Unsplash) <i data-feather="arrow-right" class="ml-2 w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-4xl nav-brand font-bold text-gray-800 mb-4">Latest Blog Posts</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Dumping my thoughts on dev tools, design, and random tech tips like I totally have my life together
+                </p>
+                <hr class="w-mx-auto my-4">
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Also I haven’t figured out how to make this look decent and presentable in terms of UI on this site yet, so yeah… it’s a one-way trip to <b>Medium</b>. <br> Bonus: I get to pretend I’m building an audience😌.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <img src="Assets\20260327_005734 (Small).jpg" alt="Blog 1" class="w-full h-72 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>Published: May 12, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Installing and Setting up a Proper SMB File Server in Linux [NAS Setup/Terminal]</h3>
+                        <p class="text-gray-600 mb-4">See, the first thing any computer should do in my opinion is to serve a productive purpose, that could be anything from being able to use it as a media player or serve as a simple file...</p>
+                        <a href="https://medium.com/@raghavendra.v.konkathi/installing-and-setting-up-a-proper-smb-file-server-in-linux-nas-setup-terminal-cb17bb71357c" target="_blank" rel="noopener noreferrer" class="text-indigo-600 font-medium flex items-center">
+                            Read More <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <img src="Assets\permissions linux.webp" alt="Blog 2" class="w-full h-72 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>Published: May 19, 2025</span></span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Role of chmod, chown, chgrp and umask — Understanding File Permissions in Linux</h3>
+                        <p class="text-gray-600 mb-4">I will discuss how to understand and setup file permissions in Linux. Applicable to mostly all distros. I will also talk about that 3 number permission string to control file permissions.....</p>
+                        <a href="https://medium.com/@raghavendra.v.konkathi/role-of-chmod-chown-chgrp-and-umask-understanding-file-permissions-in-linux-875b09b59b9a" target="_blank" rel="noopener noreferrer" class="text-indigo-600 font-medium flex items-center">
+                            Read More <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="blog-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <img src="Assets\tmux screenshot.webp" alt="Blog 3" class="w-full h-72 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>Published: January 3rd, 2026</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Learn tmux and make your life easy.</h3>
+                        <p class="text-gray-600 mb-4">For absolute new beginners, tmux is a basically a CLI (Command Line Interface) Program that runs terminals inside a terminal and these fake terminals are kept alive by termux even when we disconnect from SSH.</p>
+                        <a href="https://medium.com/@raghavendra.v.konkathi/learn-tmux-and-make-your-life-easy-bf4f1bccbca4" target="_blank" rel="noopener noreferrer" class="text-indigo-600 font-medium flex items-center">
+                            Read More <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="https://medium.com/@raghavendra.v.konkathi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-800">
+                    View All Posts (Takes you to Medium) <i data-feather="arrow-right" class="ml-2 w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl nav-brand font-bold text-gray-800 mb-4">Get In Touch</h2>
+                <p class="text-lg text-gray-600 nav-brand max-w-2xl mx-auto">
+                    Have a project in mind or want to collaborate or a recruiter? I'd love to hear from you.
+                </p>
+            </div>
+            <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-indigo-600 text-white p-10">
+                        <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <i data-feather="mail" class="mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium">Email</h4>
+                                    <p class="text-indigo-100">raghavendra.konkathi@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="phone" class="mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium">Phone</h4>
+                                    <p class="text-indigo-100">+91 810* *** 156</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="map-pin" class="mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium">Location</h4>
+                                    <p class="text-indigo-100">Hyderabad, India</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="map-pin" class="mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium">Location</h4>
+                                    <p class="text-indigo-100">Hyderabad, India</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-10">
+                            <h4 class="font-medium mb-4">Follow Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 rounded-full bg-indigo-700 flex items-center justify-center hover:bg-indigo-800 transition">
+                                    <i data-feather="github" class="w-5 h-5"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-indigo-700 flex items-center justify-center hover:bg-indigo-800 transition">
+                                    <i data-feather="twitter" class="w-5 h-5"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-indigo-700 flex items-center justify-center hover:bg-indigo-800 transition">
+                                    <i data-feather="instagram" class="w-5 h-5"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-indigo-700 flex items-center justify-center hover:bg-indigo-800 transition">
+                                    <i data-feather="linkedin" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6 mt-8 mb-10">
+    
+                                    <!-- IMAGE -->
+                                    <img 
+                                        src="Assets\footer image.png" 
+                                        alt="footer_image"
+                                        class="w-28 h-28 rounded-full object-cover border-4 border-white shadow-md"
+                                    >
+
+                                    <!-- TEXT -->
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-white">Raghavendra Konkathi</h4>
+                                        <hr class="mx-auto my-2">
+                                        <p class="text-indigo-200 text-sm">Designer, Developer and Owner</p>
+                                    </div>
+                            </div>
+                                    <div>
+                                        <p class="text-indigo-200 text-sm">Note: Form data you submit is handled through Formspree, will be checked for spam and then will be directed to my email.</p>
+                                    </div>
+                    </div>
+                    <div class="md:w-1/2 p-10">
+                        <form action="https://formspree.io/f/mvzvgbnd" method="POST">
+
+                                <div class="mb-6">
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                                    <input type="text" id="name" name="name" required
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                </div>
+
+                                <div class="mb-6">
+                                    <label for="organisation" class="block text-gray-700 font-medium mb-2">Organisation</label>
+                                    <input type="text" id="organisation" name="organisation" required
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                </div>
+
+                                <div class="mb-6">
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                    <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                </div>
+
+                                <div class="mb-6">
+                                    <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                    <textarea id="message" name="message" rows="4" required
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                                </div>
+                                                <div class="mt-4 flex items-start gap-2">
+                                                    <input 
+                                                        type="checkbox" 
+                                                        id="consent" 
+                                                        required
+                                                        class="mt-1"
+                                                    >
+
+                                                    <label for="consent" class="text-sm text-gray-600">
+                                                        I confirm that all the details provided are true and correct.
+                                                    </label>
+                                                </div>
+
+                                <button type="submit"
+                                      onclick="vibrate()"
+                                    class="w-full bg-indigo-600 text-white py-3 px-6 rounded-lg mt-8 hover:bg-red-700">
+                                    <b>Send Message</b>
+                                </button>
+
+                                </form>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:justify-between">
+                <div class="mb-8 md:mb-0 text-center md:text-left mx-auto md:mx-0">
+                    <a href="#" class="text-xl font-bold text-white">Raghav's Portfolio</a>
+                    <p class="mt-4 text-gray-100 max-w-xs mx-auto md:mx-0">
+                        Conceptualized, Designed and Developed by Raghavendra V. Konkathi
+                    </p>
+                    <hr class="mx-auto my-4">
+                    <p class="mt-4 text-gray-100 max-w-xs mx-auto md:mx-0">
+                        Based in Hyderabad, India. Feel free to checkout my socials below.
+                    </p>
+                    </p>
+                    <hr class="mx-auto my-4">
+                    <p class="mt-4 text-gray-100 max-w-xs mx-auto md:mx-0">
+                        Got any questions on how your data is being handled, Check the <b>Privacy Policy</b> and related stuff in <b>Legal</b> section. <br>I ain't no lawyer but did I put extra effort in explaining everything with as much transparency as I can.
+                    </p>
+                </div>
+                <hr class="block md:hidden my-5 border-gray-300">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-100 tracking-wider uppercase mb-4">Navigation</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+                            <li><a href="#projects" class="text-gray-400 hover:text-white transition">Projects</a></li>
+                            <li><a href="#photography" class="text-gray-400 hover:text-white transition">Photography</a></li>
+                            <li><a href="#blog" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    <hr class="block md:hidden my-1 border-gray-300">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-100 tracking-wider uppercase mb-4">Connect on Socials</h3>
+                        <ul class="space-y-2">
+                            <li><a href="https://x.com/thisraghavendra" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition">Twitter</a></li>
+                            <li><a href="https://github.com/raghav-konk" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/raghavendra-v-k-5656065a/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition">LinkedIn</a></li>
+                            <li><a href="https://www.instagram.com/rango.konk/?hl=en" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition">Instagram</a></li>
+                        </ul>
+                    </div>
+                    <hr class="block md:hidden my-1 border-gray-300">
+                    <div>
+                        
+                        <h3 class="text-sm font-semibold text-gray-100 tracking-wider uppercase mb-4">Legal</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Disclosure</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2026 Raghavendra Konkathi. All rights reserved. All photographs displayed are original artwork of the developer.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="https://github.com/raghav-konk" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="github" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://x.com/thisraghavendra" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="twitter" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://www.instagram.com/rango.konk/?hl=en" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="instagram" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/raghavendra-v-k-5656065a/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="linkedin" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+                    function vibrate() {
+                if ("vibrate" in navigator) {
+                navigator.vibrate(200);
+                }
+            }
+        lucide.createIcons();
+        // Initialize animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialize feather icons
+        feather.replace();
+
+        // Mobile menu toggle
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            vibrate();
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Vanta.js background
+        VANTA.GLOBE({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x9b9bff,
+            backgroundColor: 0x667eea,
+            size: 0.80
+        });
+    </script>
+
+
+<script>
+  let current = 0;
+  const slider = document.getElementById("slider");
+  const slides = slider.children;
+  const total = slides.length;
+
+  function updateSlide() {
+    slider.style.transform = `translateX(-${current * 100}%)`;
+  }
+
+  function nextSlide() {
+    current = (current + 1) % total;
+    updateSlide();
+  }
+
+  function prevSlide() {
+    current = (current - 1 + total) % total;
+    updateSlide();
+  }
+
+  // Optional: auto-play every 3s
+  setInterval(nextSlide, 1700);
+  document.getElementById('legal-btn').addEventListener('click', function() {
+    const menu = document.getElementById('legal-menu');
+
+    menu.classList.toggle('hidden');
+});
+
+const desktopBtn = document.getElementById('legal-btn-desktop');
+const desktopMenu = document.getElementById('legal-menu-desktop');
+const desktopIcon = desktopBtn.querySelector('i');
+
+desktopBtn.addEventListener('click', function (e) {
+    e.stopPropagation(); // prevents closing immediately
+
+    desktopMenu.classList.toggle('hidden');
+    desktopIcon.classList.toggle('rotate-180');
+});
+
+document.addEventListener('click', function () {
+    desktopMenu.classList.add('hidden');
+    desktopIcon.classList.remove('rotate-180');
+});
+
+</script>
+
+</body>
+</html>

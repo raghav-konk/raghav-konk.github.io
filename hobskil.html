@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hobbies & Skills — Raghavendra Konkathi</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Zodiak:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+    rel="stylesheet" />
+  <!-- fallback if Cabinet Grotesk doesn't load -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #faf8f3;
+      --bg2: #f2ede3;
+      --card: #ffffff;
+      --ink: #1c1712;
+      --ink-mid: #5c5344;
+      --ink-light: #a09080;
+      --ink-dim: #c8bfb0;
+      --border: #e8e0d0;
+      --border-dark: #d0c4b0;
+
+      /* accent per hobby */
+      --power: #e85d1a;
+      --power-bg: #fff4ee;
+      --sbc: #16a34a;
+      --sbc-bg: #f0faf4;
+      --gaming: #7c3aed;
+      --gaming-bg: #f5f0ff;
+      --network: #0369a1;
+      --network-bg: #f0f8ff;
+      --repair: #b45309;
+      --repair-bg: #fffbeb;
+      --solder: #be185d;
+      --solder-bg: #fff0f7;
+      --movies: #1d4ed8;
+      --movies-bg: #eff6ff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Cabinet Grotesk', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* subtle paper texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        radial-gradient(ellipse at 20% 50%, rgba(232, 93, 26, 0.04) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(124, 58, 237, 0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(169, 192, 255, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-family: 'Fraunces', 'Zodiak', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-link {
+      font-size: 0.82rem;
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: var(--ink);
+    }
+
+    /* ── PAGE ── */
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 28px 100px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 64px 0 48px;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--ink-dim);
+      border-radius: 2px;
+    }
+
+    .hero-title {
+      font-family: 'Fraunces', 'Zodiak', serif;
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      margin-bottom: 35px;
+    }
+
+    .hero-title .accent-word {
+      font-style: italic;
+      color: var(--power);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--ink-mid);
+      max-width: 540px;
+      line-height: 1.7;
+      font-family: "Ubuntu", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      margin-bottom: 30px;
+    }
+
+    /* hobby count pills */
+    .hobby-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .hobby-pill {
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 10px 13px;
+      border-radius: 20px;
+      border: 1.5px solid;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .hero-divider {
+      height: 3px;
+      background: var(--border);
+    }
+
+    /* ── CARDS GRID ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    /* default card span */
+    .hobby-card {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: cardUp 0.55s ease forwards;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* staggered animation */
+    .hobby-card:nth-child(1) {
+      animation-delay: 0.05s;
+    }
+
+    .hobby-card:nth-child(2) {
+      animation-delay: 0.12s;
+    }
+
+    .hobby-card:nth-child(3) {
+      animation-delay: 0.19s;
+    }
+
+    .hobby-card:nth-child(4) {
+      animation-delay: 0.26s;
+    }
+
+    .hobby-card:nth-child(5) {
+      animation-delay: 0.33s;
+    }
+
+    .hobby-card:nth-child(6) {
+      animation-delay: 0.40s;
+    }
+
+    .hobby-card:nth-child(7) {
+      animation-delay: 0.47s;
+    }
+
+    @keyframes cardUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hobby-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(28, 23, 18, 0.1);
+    }
+
+    /* grid spans */
+    .span-7 {
+      grid-column: span 7;
+    }
+
+    .span-5 {
+      grid-column: span 5;
+    }
+
+    .span-6 {
+      grid-column: span 6;
+    }
+
+    .span-4 {
+      grid-column: span 4;
+    }
+
+    .span-8 {
+      grid-column: span 8;
+    }
+
+    .span-12 {
+      grid-column: span 12;
+    }
+
+    /* ── CARD ANATOMY ── */
+
+    /* colour strip at top */
+    .card-strip {
+      height: 4px;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    /* image zone */
+    .card-img-zone {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg2);
+      flex-shrink: 0;
+    }
+
+    .card-img-zone img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .hobby-card:hover .card-img-zone img {
+      transform: scale(1.04);
+    }
+
+    .img-h-200 {
+      height: 200px;
+    }
+
+    .img-h-180 {
+      height: 180px;
+    }
+
+    .img-h-160 {
+      height: 160px;
+    }
+
+    .img-h-240 {
+      height: 240px;
+    }
+
+    /* placeholder */
+    .img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--ink-dim);
+    }
+
+    .placeholder-emoji {
+      font-size: 2.8rem;
+      line-height: 1;
+    }
+
+    .placeholder-hint {
+      font-size: 0.72rem;
+      color: var(--ink-dim);
+      letter-spacing: 0.06em;
+    }
+
+    /* img upload button overlay */
+    .img-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(28, 23, 18, 0.0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s;
+    }
+
+    .hobby-card:hover .img-overlay {
+      background: rgba(28, 23, 18, 0.08);
+    }
+
+    /* img label badge */
+    .img-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(250, 248, 243, 0.9);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3px 9px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--ink-mid);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* card body */
+    .card-body {
+      padding: 20px 22px 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    .card-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .card-date {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      padding: 3px 8px;
+      background: var(--bg2);
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .card-title {
+      font-family: 'Fraunces', 'Zodiak', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 0.855rem;
+      color: var(--ink-mid);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    /* tag row */
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    .ctag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1.5px solid;
+    }
+
+    /* ── REVIEW SECTION (gaming + movies) ── */
+    .review-section {
+      margin-top: 16px;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+
+    .review-section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 10px;
+    }
+
+    .review-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding: 10px 12px;
+      background: var(--bg);
+      border-radius: 10px;
+      margin-bottom: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .review-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .review-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .review-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .review-date {
+      font-size: 0.68rem;
+      color: var(--ink-light);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .review-stars {
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      margin-bottom: 2px;
+    }
+
+    .review-text {
+      font-size: 0.8rem;
+      color: var(--ink-mid);
+      line-height: 1.55;
+      font-style: italic;
+    }
+
+    /* ── SKILL CHIPS (inside cards) ── */
+    .skill-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    .skill-chip {
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: var(--bg2);
+      border: 1px solid var(--border-dark);
+      color: var(--ink-mid);
+      padding: 4px 11px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .skill-chip-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+
+      .span-7,
+      .span-5,
+      .span-8,
+      .span-4 {
+        grid-column: span 12;
+      }
+
+      .span-6 {
+        grid-column: span 12;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding: 0 14px 80px;
+      }
+
+      nav {
+        padding: 0 16px;
+      }
+
+      .hero-title {
+        font-size: 2.4rem;
+      }
+
+      .cards-grid {
+        gap: 12px;
+      }
+    }
+
+    .doc-footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .doc-footer-name {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 1rem;
+      color: rgb(178, 107, 0);
+    }
+
+    .doc-footer-note {
+      font-size: 0.78rem;
+      color: rgb(171, 108, 0);
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">Raghav's Home</a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="projectsbuilt.html" class="nav-link">Projects</a>
+      <a href="experience.html" class="nav-link">Experience</a>
+    </div>
+  </nav>
+
+  <div class="page">
+
+    <!-- HERO -->
+    <div class="hero">
+      <p class="hero-eyebrow">Personal · Interests</p>
+      <div class="hero-left">
+        <h1 class="hero-title">Beyond the<br /><span class="accent-word">day job.</span></h1>
+
+        <p class="hero-sub">The stuff I do when there’s no deadline. No monetization plan, no end goal—just curiosity
+          doing its thing. Tinkering with whatever’s lying around, fixing what shouldn’t work, and building things
+          purely because I want to see if I can.</p>
+
+        <div class="hobby-pills">
+          <a href="#keyboards" class="hobby-pill"
+            style="color:var(--power);border-color:var(--power);background:var(--power-bg)">⌨️ Mechanical Keyboards</a>
+          <a href="#photography" class="hobby-pill"
+            style="color:var(--power);border-color:var(--power);background:var(--power-bg)">📸 Photography</a>
+          <a href="#pcbuilding" class="hobby-pill"
+            style="color:var(--power);border-color:var(--power);background:var(--power-bg)">🖥️ PC Building</a>
+          <a href="#powertools" class="hobby-pill"
+            style="color:var(--power);border-color:var(--power);background:var(--power-bg)">👷🏽 Power Tools</a>
+          <a href="#sbc" class="hobby-pill" style="color:var(--sbc);border-color:var(--sbc);background:var(--sbc-bg)">🍓
+            SBCs & Pi</a>
+          <a href="#3dprint" class="hobby-pill"
+            style="color:var(--sbc);border-color:var(--sbc);background:var(--sbc-bg)">🍰 3D Printing</a>
+          <a href="#gaming" class="hobby-pill"
+            style="color:var(--gaming);border-color:var(--gaming);background:var(--gaming-bg)">🎮 Gaming</a>
+          <a href="#network" class="hobby-pill"
+            style="color:var(--network);border-color:var(--network);background:var(--network-bg)">🌐 Networking</a>
+          <a href="#repair" class="hobby-pill"
+            style="color:var(--repair);border-color:var(--repair);background:var(--repair-bg)">🔧 Repairs</a>
+          <a href="#solder" class="hobby-pill"
+            style="color:var(--solder);border-color:var(--solder);background:var(--solder-bg)">🔥 Soldering</a>
+          <a href="#biking" class="hobby-pill"
+            style="color:var(--solder);border-color:var(--solder);background:var(--solder-bg)">🚲 Bicycling</a>
+          <a href="#biking" class="hobby-pill"
+            style="color:var(--solder);border-color:var(--solder);background:var(--solder-bg)">🏸 Badminton</a>
+          <a href="#movies" class="hobby-pill"
+            style="color:var(--movies);border-color:var(--movies);background:var(--movies-bg)">🚀 Sci-Fi</a>
+        </div>
+
+        <div class="hero-divider"></div>
+      </div>
+
+      <!-- CARDS GRID -->
+      <div class="cards-grid">
+        <!-- ① Mechanical Keyboards — wide left -->
+        <div class="hobby-card span-7" id="power">
+          <div class="card-strip" style="background: linear-gradient(90deg, #e85d1a, #fb923c);"></div>
+          <div class="card-img-zone img-h-200">
+            <img src="Assets/keyboard-collage (Small).png" alt="keyboards" class="card-img">
+            <div class="img-overlay"></div>
+            <span class="img-badge">Mechanical Keyboards</span>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <span class="card-icon">⚙️</span>
+              <span class="card-date">Started · 2019</span>
+            </div>
+            <h3 class="card-title">Mechanical Keyboards and Controllers</h3>
+            <p class="card-desc">
+              Really into mechanical keyboards and Controllers, with a small but carefully picked collection featuring
+              Cherry MX Blue, Brown, and Red switches. I’ve spent a fair amount of time figuring out how each one feels
+              and sounds—clicky, tactile, linear, the whole spectrum. It’s been a fun rabbit hole of tiny differences
+              that somehow matter a lot… and after all that, I’ve managed to achieve a very respectable 50+ WPM😂..
+            </p>
+            <div class="skill-chips">
+              <span class="skill-chip"><span class="skill-chip-dot"
+                  style="background:var(--power)"></span>Stabilizers</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--power)"></span>Switch
+                Swapping</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--power)"></span>Greasing and
+                Lubing</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--power)"></span>Hall Effect
+                Sensors</span>
+            </div>
+          </div>
+        </div>
+        <!-- ② PC Building — narrow right -->
+        <div class="hobby-card span-5" id="sbc">
+          <div class="card-strip" style="background: linear-gradient(90deg, #16a34a, #4ade80);"></div>
+          <div class="card-img-zone img-h-200">
+            <img src="Assets/hobas1.jpg" alt="Photography" class="card-img">
+            <div class="img-overlay"></div>
+            <span class="img-badge">PC Building</span>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <span class="card-icon">🖥️</span>
+              <span class="card-date">AROUND 2013</span>
+            </div>
+            <h3 class="card-title">PC Building and Self Hosting</h3>
+            <p class="card-desc">
+              Deep into PC building and hands-on hardware work. Managed a school computer lab, handling everything from
+              thermal repasting to system troubleshooting. Outside of work, I constantly tear down and rebuild my own
+              rigs just to push them further. Things changed so fast since I learnt about Tailscale in Home Lab setup.
+            </p>
+            <div class="skill-chips">
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--sbc)"></span>PSUs</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--sbc)"></span>Hardware and
+                Overclocking</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--sbc)"></span>Linux</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--sbc)"></span>Self
+                Hosting</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--sbc)"></span>Custom
+                Cabling</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ② Photography — narrow right -->
+        <div class="hobby-card span-5" id="sbc">
+          <div class="card-strip" style="background: linear-gradient(90deg, #16a34a, #4ade80);"></div>
+          <div class="card-img-zone img-h-200">
+            <img src="Assets/rangophotography.png" alt="Photography" class="card-img">
+            <div class="img-overlay"></div>
+            <span class="img-badge">Photography · Mid 2013</span>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <span class="card-icon">📸</span>
+              <span class="card-date">Mid 2013</span>
+            </div>
+            <h3 class="card-title">Photography</h3>
+            <p class="card-desc">
+              As stated, I’m big on photography—especially macro, product, and high-speed sync (HSS) work with water and
+              dew. I do have tele lens but it isn't exactly well-suited for Wildlife photography. Anyhow feel free to
+              explore my work on Flickr and Unsplash.
+            </p>
+            <div class="skill-chips">
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--sbc)"></span>Macro</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--sbc)"></span>Product</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--sbc)"></span>Hi Speed
+                Sync</span>
+              <a href="https://unsplash.com/@rangokonk/" target="_blank" rel="noreferrer noopener"> <span
+                  class="skill-chip"><span class="skill-chip-dot" style="background:red"></span><strong>
+                    Unsplash↗️</strong></span></a>
+              <a href="https://www.flickr.com/people/rangokonk/" target="_blank" rel="noreferrer noopener"> <span
+                  class="skill-chip"><span class="skill-chip-dot" style="background:red"></span>
+                  <b>Flickr↗️</b></span></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ① POWER TOOLS — wide left -->
+        <div class="hobby-card span-7" id="power">
+          <div class="card-strip" style="background: linear-gradient(90deg, #e85d1a, #fb923c);"></div>
+          <div class="card-img-zone img-h-200">
+            <img src="Assets/mydrill.jpg" alt="Photography" class="card-img">
+            <div class="img-overlay"></div>
+            <span class="img-badge">Power Tools</span>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <span class="card-icon">⚙️</span>
+              <span class="card-date">Recent · 2025</span>
+            </div>
+            <h3 class="card-title">Power Tools, 3D Printing &amp; Workshop</h3>
+            <p class="card-desc">
+              A relatively recent obsession. Started with a basic drill from Bosch which my mother got for me, now it's
+              a proper growing toolkit with pipe wrenches and T-Spanners. There's something deeply satisfying about
+              fixing something physical — a nice counterbalance to a day spent entirely on screens. Currently exploring
+              welding, woodworking and fabrication on the side to see how things are run at a local shop here in
+              Hyderabad.
+            </p>
+            <div class="skill-chips">
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--power)"></span>Drills</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--power)"></span>Cutting
+                Tools</span>
+              <span class="skill-chip"><span class="skill-chip-dot"
+                  style="background:var(--power)"></span>Fabrication</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--power)"></span>Workshop
+                Safety</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ② RASPBERRY PI — narrow right -->
+        <div class="hobby-card span-6" id="sbc">
+          <div class="card-strip" style="background: linear-gradient(90deg, #16a34a, #4ade80);"></div>
+          <div class="card-img-zone img-h-200">
+            <img src="Assets/raspi collage.png" alt="Photography" class="card-img">
+            <div class="img-overlay"></div>
+            <span class="img-badge">SBC · Early 2026</span>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <span class="card-icon">🖥️</span>
+              <span class="card-date">Early 2026</span>
+            </div>
+            <h3 class="card-title">Raspberry Pi &amp; SBCs</h3>
+            <p class="card-desc">
+              Raspberry Pis, Orange Pis, and anything with a 40-pin GPIO header. I was getting too sick of these mobile
+              Operating Systems, sold one of my phones and bought 2 Raspbery Pis just before the price hike. can't
+              believe the amount of help that's on Youtube. Running headless Linux servers, tinkering with GPIO sensors,
+              and using them as nodes in my homelab. The SMB file server article on Medium came directly from this
+              rabbit hole.
+            </p>
+            <div class="skill-chips">
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--sbc)"></span>Raspberry
+                Pi</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--sbc)"></span>Headless
+                Linux</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--sbc)"></span>GPIO</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hobby-card span-6" id="virtualreality">
+          <div class="card-strip" style="background: linear-gradient(90deg, #be185d, #f472b6);"></div>
+          <div class="card-img-zone img-h-200">
+            <img src="Assets/vrheadset.png" alt="Photography" class="card-img">
+            <div class="img-overlay"></div>
+            <span class="img-badge">Virtual Reality</span>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <span class="card-icon">🥽</span>
+              <span class="card-date">Ongoing</span>
+            </div>
+            <h3 class="card-title">Virtual Reality</h3>
+            <p class="card-desc">
+              Started by Using Google Cardboard on my Galaxy S5, recently bought Meta Quest 3. There is an app in Meta's
+              VR platform whose existence is bugging me a lot, It lets you draw these gigantic murals on big plane walls
+              and I got into this to see what I can do with it. That and of course to play games. Heck so far it didn't
+              let me down.
+            </p>
+            <div class="skill-chips">
+              <span class="skill-chip"><span class="skill-chip-dot"
+                  style="background:var(--solder)"></span>Through-hole</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--solder)"></span>SMD
+                Basics</span>
+              <span class="skill-chip"><span class="skill-chip-dot"
+                  style="background:var(--solder)"></span>Rework</span>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ③ GAMING — full width with reviews -->
+        <div class="hobby-card span-12" id="gaming">
+          <div class="card-strip" style="background: linear-gradient(90deg, #7c3aed, #a78bda, #ff0000);"></div>
+          <div style="display:grid; grid-template-columns: 200px 1fr; min-height: 200px;">
+            <!-- image side -->
+            <div class="card-img-zone" style="height:100%; border-right:1.5px solid var(--border);">
+              <img src="Assets/disccollection.jpg" alt="Photography" class="card-img">
+              <div class="img-overlay"></div>
+              <span class="img-badge">Gaming</span>
+            </div>
+            <!-- content side -->
+            <div class="card-body">
+              <div class="card-header">
+                <span class="card-icon">🕹️</span>
+                <span class="card-date">Ongoing</span>
+              </div>
+              <h3 class="card-title">Gaming</h3>
+              <p class="card-desc">Not to flex or anything, but I casually own an Xbox Series S, a PS5, a Nintendo
+                Switch 1 and an NVidia RTX 3080 GPU (bought before the price hike of 2026) —so yeah, gaming is kind of
+                my personality now. My collection is “moderate” in the same way a buffet is “a light snack.” I don’t
+                really mess with Fortnite—I prefer games with thick story, plot, trauma, and at least three existential
+                crisis per playthrough.
+                Also, I play on my mom’s 4K 240Hz OLED TV, because clearly I’ve made excellent life decisions (hahaha
+                😂).
+                “rangokonk” started as a joke. Now it’s basically my brand. This is my life now.</p>
+
+              <div class="review-section">
+                <p class="review-section-label">🎮 Recently Played</p>
+
+                <div class="review-item">
+                  <div class="review-top">
+                    <span class="review-name">Returnal</span>
+                    <span class="review-date">Oct 2024</span>
+                  </div>
+                  <div class="review-stars" style="color:var(--gaming);">★★★★★</div>
+                  <p class="review-text">"Finally finished the full run by ending all 5 bosses. The game is so good it
+                    broke my controllers. I had to replace the potentiometer sticks to hall effect ones to stop drifting
+                    because of this game. Didn't touch Algos in the Tower of Sisyphus DLC yet. Housemarque, IMHO is the
+                    most underrated Video Game studio on this planet. Can't wait to see what they will do with
+                    "S.A.R.O.S"</p>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-top">
+                    <span class="review-name">God of War series (2017 and Ragnarok)</span>
+                    <span class="review-date">Mar 2024 </span>
+                  </div>
+                  <div class="review-stars" style="color:var(--gaming);">★★★★★</div>
+                  <p class="review-text">"Played both of them back to back. The Norse mythology and story telling is
+                    simply next level. The music by Bear McCreary and the Mother's sentiment with Atreaus goes so well,
+                    some scenes are legit tearjerkers. I think God of War: Ragnarok is the first game I played in 120fps
+                    mode in my PS5. The Valkyries, whose design and mannerisms are stunning are incredibly tough to
+                    beat. I fought 3 out of 9 valkyries and couldn't stand the sweat my hands were producing by holding
+                    the controller."</p>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-top">
+                    <span class="review-name">Doom 2016 and Doom: Eternal</span>
+                    <span class="review-date">Nov 2025</span>
+                  </div>
+                  <div class="review-stars" style="color:var(--gaming);">★★★★☆</div>
+                  <p class="review-text">"The combat mechanics are amazing, the story however kind of get's boring on
+                    some levels. I had to watch so many videos on Youtube just to get myself immersed into the world.
+                    This is the issue with FPS games, there is this unspoken element of friction to connect to the world
+                    and character. For me, atleast. Doom:Eternal (runs at 120fps) however looks good and modern but the
+                    2016 is slightly hard pill to swallow in terms of visual element (stuck at 60fps) especially if you
+                    play on a big screen TV or monitor."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ④ NETWORKING — medium -->
+        <div class="hobby-card span-12" id="network">
+          <div class="card-strip" style="background: linear-gradient(90deg, #0369a1, #38bdf8);"></div>
+          <div class="card-img-zone img-h-180">
+            <img src="Assets/networking.JPG" alt="Photography" class="card-img">
+            <div class="img-overlay"></div>
+            <span class="img-badge">Networking</span>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <span class="card-icon">📡</span>
+              <span class="card-date">Ongoing · CCNA Track</span>
+            </div>
+            <h3 class="card-title">Networking &amp; Cable Runs</h3>
+            <p class="card-desc">
+              Got actual routers and switches at home. Not for show — actively used for lab work alongside the CCNA
+              track. I do my own cable runs, hand-crimp RJ45 ends, and configure VLANs and PoE switches. There's
+              something very satisfying about a clean, properly terminated patch panel.
+            </p>
+            <div class="skill-chips">
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--network)"></span>VPN
+                Gateways</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--network)"></span>Managed
+                Switches</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--network)"></span>RJ45
+                Crimping</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--network)"></span>Cable
+                Runs</span>
+              <span class="skill-chip"><span class="skill-chip-dot"
+                  style="background:var(--network)"></span>VLANs</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--network)"></span>PoE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ⑤ REPAIRS + ⑥ SOLDERING — side by side -->
+        <div class="hobby-card span-3" id="repair" style="grid-column: span 7;">
+          <div class="card-strip" style="background: linear-gradient(90deg, #b45309, #fbbf24);"></div>
+          <div class="card-img-zone img-h-160">
+            <img src="Assets/poe switch.JPG" alt="Photography" class="card-img">
+            <div class="img-overlay"></div>
+            <span class="img-badge">Repairs</span>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <span class="card-icon">🛠️</span>
+              <span class="card-date">Ongoing</span>
+            </div>
+            <h3 class="card-title">Electronics Repairs</h3>
+            <p class="card-desc">
+              Before buying new, I try to fix it. Phones, laptops, peripherals, PSUs, PCBs — if it's broken and has a
+              chance of coming back to life, it ends up on my desk. Component-level diagnosis is a skill that doesn't
+              get enough credit.
+            </p>
+            <div class="skill-chips">
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--repair)"></span>PCB
+                Diagnosis</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--repair)"></span>Phone
+                Repair</span>
+              <span class="skill-chip"><span class="skill-chip-dot"
+                  style="background:var(--repair)"></span>Multimeter</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hobby-card span-3" id="solder" style="grid-column: span 5;">
+          <div class="card-strip" style="background: linear-gradient(90deg, #be185d, #f472b6);"></div>
+          <div class="card-img-zone img-h-160">
+            <img src="Assets/soldering.JPEG" alt="soldering controller`" class="card-img">
+            <div class="img-overlay"></div>
+            <span class="img-badge">Soldering</span>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <span class="card-icon">⚡</span>
+              <span class="card-date">Ongoing</span>
+            </div>
+            <h3 class="card-title">Soldering</h3>
+            <p class="card-desc">
+              Through-hole and basic SMD soldering. Part of both the repair workflow and the SBC/electronics projects. A
+              good iron and steady hands go a long way. Currently using a temperature-controlled station for finer work.
+            </p>
+            <div class="skill-chips">
+              <span class="skill-chip"><span class="skill-chip-dot"
+                  style="background:var(--solder)"></span>Through-hole</span>
+              <span class="skill-chip"><span class="skill-chip-dot" style="background:var(--solder)"></span>SMD
+                Basics</span>
+              <span class="skill-chip"><span class="skill-chip-dot"
+                  style="background:var(--solder)"></span>Rework</span>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <!-- ④ Bicycling and Badminton — medium -->
+        <div class="hobby-card span-12" id="network">
+          <div class="card-strip" style="background: linear-gradient(90deg, #0369a1, #38bdf8);"></div>
+          <div class="card-img-zone img-h-300">
+            <img src="Assets/cycling.png" alt="Photography" class="card-img">
+            <div class="img-overlay"></div>
+            <span class="img-badge">Bicycling</span>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <span class="card-icon">🚲</span>
+              <span class="card-date">Life Long</span>
+            </div>
+            <h3 class="card-title">Bicycling & Badminton</h3>
+            <p class="card-desc">
+              Ever since I was a kid, I used to cycle a lot—like, a lot. Somewhere along the way that heroic lifestyle
+              quietly retired, replaced by… well, less heroic things. But recently, the newly built cycle track at TSPA
+              Junction decided to personally drag me back into motion. Now I walk, listening to music, I cycle, I even
+              play badminton like I’ve got something to prove.
+
+              And yet—despite all this sudden athletic resurgence—I still weigh over 200 pounds. So clearly, something
+              somewhere is a scam, and I’d like to file a complaint😂.
+            </p>
+          </div>
+        </div>
+
+        <!-- ⑦ MOVIES & SCI-FI — full width with reviews -->
+        <div class="hobby-card span-12" id="movies">
+          <div class="card-strip" style="background: linear-gradient(90deg, #1d4ed8, #7c3aed, #0ea5e9);"></div>
+          <div style="display:grid; grid-template-columns: 1fr 360px; min-height: 300px;">
+            <!-- content side -->
+            <div class="card-body" style="border-right:1.5px solid var(--border);">
+              <div class="card-header">
+                <span class="card-icon">🚀</span>
+                <span class="card-date">Lifelong · Sci-Fi Only</span>
+              </div>
+              <h3 class="card-title">Movies &amp; TV Shows</h3>
+              <p class="card-desc">
+                Strictly sci-fi. Hard sci-fi preferred, Sometimes Fantasy and Comedy genre preferred. I am just not into
+                these love stories and crazy stuff that promotes stalking — the kind that respects physics at least a
+                little. Interstellar, The Expanse, Arrival, Severance. If it has FTL travel and zero explanation, I'm
+                still watching, but I'm judging. Also a sucker for dystopian future and tech noir. <em>Black Mirror</em>
+                seasons 1–3 are nearly perfect television. When I was a kid, it started as a small DVD collection ripped by one of my friends from school. Slowly it grew, But I gave it up increasing the DVD collection (the video quality is crap anyway) after owning a Plex Pass in 2016.
+                <br>OLEDs Man, I am telling you, You gotta watch stuff in OLEDs in dark room, Hopefully temperature-controlled.
+              </p>
+              <div class="review-section">
+                <p class="review-section-label">🎬 Recently Watched</p>
+
+                <div class="review-item">
+                  <div class="review-top">
+                    <span class="review-name">Severance — Season 2</span>
+                    <span class="review-date">Feb 2025</span>
+                  </div>
+                  <div class="review-stars" style="color:var(--movies);">★★★★★</div>
+                  <p class="review-text">"Somehow outdid Season 1. The Lumon mythology gets properly expanded and the
+                    finale left me genuinely unsettled. Best show on TV right now."</p>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-top">
+                    <span class="review-name">Dune: Part Two</span>
+                    <span class="review-date">Sep 2024</span>
+                  </div>
+                  <div class="review-stars" style="color:var(--movies);">★★★★★</div>
+                  <p class="review-text">"Villeneuve made the impossible look easy. The sandworm ride scene is one of
+                    the greatest things ever put to film. Paul's arc is handled with real care."</p>
+                </div>
+
+                <div class="review-item">
+                  <div class="review-top">
+                    <span class="review-name">3 Body Problem (Netflix)</span>
+                    <span class="review-date">Apr 2024</span>
+                  </div>
+                  <div class="review-stars" style="color:var(--movies);">★★★★☆</div>
+                  <p class="review-text">"Not going to lie, Didn't read the books but the TV show is brilliantly shot.
+                    The Wallfacer arc is brilliantly set up. Some pacing issues mid-season but the payoff is worth it."
+                  </p>
+                </div>
+                <div class="review-item">
+                  <div class="review-top">
+                    <span class="review-name">Altered Carbon (S01 and S02)</span>
+                    <span class="review-date">Oct 2019</span>
+                  </div>
+                  <div class="review-stars" style="color:var(--movies);">★★★☆☆</div>
+                  <p class="review-text">"I binge-watched both seasons of Altered Carbon back to back—on an OLED
+                    display, so visually, it’s all neon-soaked perfection. Season 1 really delivers: the whole “stack
+                    and sleeve” concept feels fresh, and watching Takeshi Kovacs unravel a rich, cyberpunk mystery in a
+                    world of immortal elites actually pulls you in.
+
+                    Season 2, though, feels like it’s just going through the motions. Even with Anthony Mackie stepping
+                    in, the story loses its edge and ends up feeling stretched and oddly generic.
+
+                    By the end, it kind of feels like a season made just to exist—slowly drifting into the black hole of
+                    the Netflix catalog."</p>
+                </div>
+                <div class="review-item">
+                  <div class="review-top">
+                    <span class="review-name">Love Death + Robots</span>
+                    <span class="review-date">Apr 2019</span>
+                  </div>
+                  <div class="review-stars" style="color:var(--movies);">★★★★☆</div>
+                  <p class="review-text">"I love these short stories, they look visually stunning and look like video game cutscenes, Hell I think some video game companies are involved in production of this.
+                    They are small, respect your time and sometimes just sometimes make you crave for more. "</p>
+                </div>
+              </div>
+            </div>
+            <!-- image side -->
+            <div class="card-img-zone" style="height:100%;">
+              <img src="Assets/moviesec.png" alt="Photography" class="card-img">
+              <div class="img-overlay"></div>
+              <span class="img-badge">Sci-Fi · Film</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /cards-grid -->
+
+      <div class="doc-footer">
+        <span class="doc-footer-name">Raghavendra Konkathi &copy; </span>
+        <span class="doc-footer-note">Effective May 25, 2024 · Hobbies and Skills</span>
+      </div>
+    </div><!-- /page -->
+
+</body>
+
+</html>

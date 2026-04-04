@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Disclosure & Self-Declaration — Raghavendra Konkathi</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f0eff4;
+      --card: #ffffff;
+      --purple-deep: #4f46e5;
+      --purple-mid: #6b3fa0;
+      --purple-light: #a78bda;
+      --purple-mist: #ede8f8;
+      --text-dark: #1a1224;
+      --text-mid: #4b4260;
+      --text-light: #8e84a8;
+      --border: #ddd8ee;
+      --amber-mist: #fdf6e3;
+      --amber-border: #f0d080;
+      --amber-text: #7a5c00;
+      --red-mist: #fff0f0;
+      --red-border: #f5a0a0;
+      --red-text: #7a1a1a;
+      --green-mist: #f0faf4;
+      --green-border: #7ecfa0;
+      --green-text: #1a5c35;
+    }
+
+    html, body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: #288453;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-back {
+      font-size: 1rem;
+      font-weight: 500;
+      color: Yellow;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: opacity 0.2s;
+    }
+    .nav-back:hover { opacity: 0.7; }
+
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── HEADER ── */
+    .doc-header {
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .doc-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 10px;
+    }
+
+    .doc-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      color: var(--purple-deep);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .doc-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.8rem;
+    }
+
+    .doc-meta span {
+      background: var(--purple-mist);
+      color: var(--purple-mid);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    /* ── LEGAL NAV ── */
+    .legal-nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .legal-nav a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 20px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      color: var(--text-mid);
+      background: var(--card);
+      transition: all 0.2s;
+    }
+
+    .legal-nav a:hover,
+    .legal-nav a.active {
+      background: var(--purple-mist);
+      color: var(--purple-mid);
+      border-color: var(--purple-light);
+    }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 26px;
+      margin-bottom: 28px;
+    }
+
+    .toc-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 12px;
+    }
+
+    .toc ol {
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .toc a {
+      font-size: 0.875rem;
+      color: var(--purple-mid);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .toc a:hover { text-decoration: underline; }
+
+    /* ── CALLOUT BOXES ── */
+    .highlight {
+      background: var(--purple-mist);
+      border-left: 3px solid var(--purple-mid);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 14px 0;
+      font-size: 0.9rem;
+      color: var(--purple-deep);
+      font-weight: 500;
+    }
+
+    .warning {
+      background: var(--amber-mist);
+      border-left: 3px solid var(--amber-border);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 14px 0;
+      font-size: 0.9rem;
+      color: var(--amber-text);
+      font-weight: 500;
+    }
+
+    .danger {
+      background: var(--red-mist);
+      border-left: 3px solid var(--red-border);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 14px 0;
+      font-size: 0.9rem;
+      color: var(--red-text);
+      font-weight: 500;
+    }
+
+    .good {
+      background: var(--green-mist);
+      border-left: 3px solid var(--green-border);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 14px 0;
+      font-size: 0.9rem;
+      color: var(--green-text);
+      font-weight: 500;
+    }
+
+    /* ── OWNERSHIP STAMP ── */
+    .ownership-stamp {
+      background: var(--purple-deep);
+      color: white;
+      border-radius: 14px;
+      padding: 28px 30px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .stamp-icon {
+      font-size: 2.4rem;
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .stamp-body {}
+
+    .stamp-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .stamp-text {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── MEDIA TYPE GRID ── */
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .media-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .media-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 1px;
+    }
+
+    .media-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 2px;
+    }
+
+    .media-desc {
+      font-size: 0.77rem;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 30px;
+      margin-bottom: 20px;
+    }
+
+    .section-num {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      color: var(--purple-deep);
+      margin-bottom: 14px;
+    }
+
+    p {
+      font-size: 0.925rem;
+      color: var(--text-mid);
+      margin-bottom: 12px;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    li {
+      font-size: 0.925rem;
+      color: var(--text-mid);
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    a.inline {
+      color: var(--purple-mid);
+      font-weight: 500;
+    }
+    a.inline:hover { text-decoration: underline; }
+
+    strong { color: var(--text-dark); }
+
+    /* ── SIGNATURE BLOCK ── */
+    .signature-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 30px;
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .sig-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 4px;
+    }
+
+    .sig-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: var(--purple-deep);
+      font-style: italic;
+    }
+
+    .sig-detail {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    /* ── FOOTER ── */
+    .doc-footer {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .doc-footer-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.95rem;
+      color: var(--purple-deep);
+    }
+
+    .doc-footer-note {
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 560px) {
+      .section { padding: 20px 18px; }
+      .ownership-stamp { flex-direction: column; gap: 12px; }
+      .media-grid { grid-template-columns: 1fr 1fr; }
+    }
+     .back-home {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.back-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #d1ced6;
+  background: #6335c4;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(59,31,110,0.08);
+}
+
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Raghav's Home</a>
+  <a href="index.html" class="nav-back">← Back to Site</a>
+</nav>
+
+<div class="page">
+
+  <div class="doc-header">
+    <p class="doc-eyebrow">Legal · Disclosure</p>
+    <h1 class="doc-title">Disclosure &amp; Self-Declaration</h1>
+    <div class="doc-meta">
+      <span>Effective: May 25, 2026</span>
+      <span>Last updated: May 25, 2026</span>
+      <span>Site: raghavendra.dev</span>
+    </div>
+  </div>
+
+  <!-- Legal nav -->
+  <div class="legal-nav">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="disclosure.html" class="active">Disclosure &amp; Self-Declaration</a>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <p class="toc-title">Contents</p>
+    <ol>
+      <li><a href="#s1">What this document is</a></li>
+      <li><a href="#s2">Ownership declaration — all media and content</a></li>
+      <li><a href="#s3">Photography declaration</a></li>
+      <li><a href="#s4">Written content declaration</a></li>
+      <li><a href="#s5">Code and projects declaration</a></li>
+      <li><a href="#s6">What you may and may not do</a></li>
+      <li><a href="#s7">Reporting misuse</a></li>
+      <li><a href="#s8">AI-generated content disclosure</a></li>
+      <li><a href="#s9">Affiliate and sponsorship disclosure</a></li>
+      <li><a href="#s10">Personal opinion disclosure</a></li>
+      <li><a href="#s11">Contact</a></li>
+    </ol>
+  </div>
+
+  <!-- Ownership stamp -->
+  <div class="ownership-stamp">
+    <div class="stamp-icon">©</div>
+    <div class="stamp-body">
+      <p class="stamp-title">All content on this site is original and owned by Raghavendra Konkathi.</p>
+      <p class="stamp-text">Every photograph, line of written content, piece of code, and design element on this website was created personally by Raghavendra Konkathi unless explicitly stated otherwise. No content has been sourced, scraped, or repurposed from third parties without credit.</p>
+    </div>
+  </div>
+
+  <!-- 1 -->
+  <div class="section" id="s1">
+    <p class="section-num">Section 01</p>
+    <h2>What This Document Is</h2>
+    <p>This Disclosure and Self-Declaration is a voluntary, transparent statement by <strong>Raghavendra Konkathi</strong> regarding the origin, ownership, and permitted use of all content, media, and material published on this personal portfolio website.</p>
+    <p>It is intended to make clear — to visitors, potential employers, collaborators, and any third parties — exactly what belongs to the site owner and under what terms it may or may not be used.</p>
+    <p>This document should be read alongside the <a href="privacy-policy.html" class="inline">Privacy Policy</a> and <a href="terms.html" class="inline">Terms of Service</a>, which together form the complete legal framework for this site.</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="section" id="s2">
+    <p class="section-num">Section 02</p>
+    <h2>Ownership Declaration — All Media and Content</h2>
+    <p>I, <strong>Raghavendra Konkathi</strong>, hereby declare that the following categories of content published on this website are entirely my own original work, created by me personally, and are fully owned by me:</p>
+
+    <div class="media-grid">
+      <div class="media-card">
+        <span class="media-icon">📷</span>
+        <div>
+          <div class="media-label">Photography</div>
+          <div class="media-desc">All photos shot personally using my own camera equipment</div>
+        </div>
+      </div>
+      <div class="media-card">
+        <span class="media-icon">✍️</span>
+        <div>
+          <div class="media-label">Written Content</div>
+          <div class="media-desc">Blog posts, articles, descriptions, and all site copy</div>
+        </div>
+      </div>
+      <div class="media-card">
+        <span class="media-icon">💻</span>
+        <div>
+          <div class="media-label">Code & Projects</div>
+          <div class="media-desc">All applications, scripts, and project builds shown here</div>
+        </div>
+      </div>
+      <div class="media-card">
+        <span class="media-icon">🎨</span>
+        <div>
+          <div class="media-label">UI & Design</div>
+          <div class="media-desc">The visual design and layout of this website itself</div>
+        </div>
+      </div>
+      <div class="media-card">
+        <span class="media-icon">🎬</span>
+        <div>
+          <div class="media-label">Demo GIFs & Media</div>
+          <div class="media-desc">Screen recordings and animated demos of my own projects</div>
+        </div>
+      </div>
+      <div class="media-card">
+        <span class="media-icon">🖼️</span>
+        <div>
+          <div class="media-label">Visual Assets</div>
+          <div class="media-desc">All graphics, icons, and decorative media unless credited</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="good">
+      All of the above is protected under the Copyright Act, 1957 (India) and applicable international copyright treaties, including the Berne Convention.
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="section" id="s3">
+    <p class="section-num">Section 03</p>
+    <h2>Photography Declaration</h2>
+    <p>Every photograph displayed on this website — whether in the Photography section, used as blog cover images, project thumbnails, or anywhere else — was personally shot by me, <strong>Raghavendra Konkathi</strong>, using my own equipment:</p>
+    <ul>
+      <li>Canon EOS 7D Mark II</li>
+      <li>Canon EOS 77D</li>
+      <li>Personal lens collection (including macro lenses)</li>
+      <li>Godox lighting equipment</li>
+      <li>Samsung Galaxy S23 Ultra (for select mobile shots)</li>
+    </ul>
+    <p>No photographs on this site have been downloaded from stock libraries, sourced from other photographers, or generated using AI image tools, unless explicitly labelled as such.</p>
+    <p>Photographs I have published on <strong>Unsplash</strong> are available under the Unsplash License for free use by others. However, photographs displayed exclusively on this site are <strong>all-rights-reserved</strong> and are not covered by the Unsplash License.</p>
+    <div class="danger">
+      Downloading, repurposing, or republishing photographs from this site without explicit written permission is a violation of copyright and will be treated accordingly.
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="section" id="s4">
+    <p class="section-num">Section 04</p>
+    <h2>Written Content Declaration</h2>
+    <p>All written content on this site — including but not limited to blog posts, technical articles, project descriptions, the about section, and all other page copy — was written by me personally.</p>
+    <p>Blog posts published on <strong>Medium</strong> under the handle <a href="https://medium.com/@raghavendra.v.konkathi" target="_blank" rel="noopener" class="inline">@raghavendra.v.konkathi</a> are also my original work. They reflect my personal research, hands-on experience, and opinions at the time of writing.</p>
+    <div class="highlight">
+      If you quote or reference my writing anywhere, please attribute it clearly — name, site URL, and a link to the original article. That's all I ask.
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="section" id="s5">
+    <p class="section-num">Section 05</p>
+    <h2>Code and Projects Declaration</h2>
+    <p>All projects showcased on this site were built by me. Where a project uses open-source libraries, frameworks, or third-party packages, those are acknowledged within the project's own README or documentation on GitHub.</p>
+    <p>Using open-source tools to build something does not reduce ownership of the original work itself. The project architecture, logic, design decisions, and implementation are mine.</p>
+    <p>Project source code on GitHub is published under whatever licence is specified in each repository. Where no licence file is present, all rights are reserved by default.</p>
+  </div>
+
+  <!-- 6 -->
+  <div class="section" id="s6">
+    <p class="section-num">Section 06</p>
+    <h2>What You May and May Not Do</h2>
+
+    <p style="font-weight:600; color: var(--green-text); margin-bottom: 6px;">✅ Permitted</p>
+    <ul>
+      <li>Share links to this site or any specific page on it.</li>
+      <li>Reference my work with proper attribution and a link back.</li>
+      <li>Use photographs from my <strong>Unsplash profile</strong> in accordance with the Unsplash License.</li>
+      <li>Contact me to request permission to use specific content — I'm generally open to this for non-commercial purposes.</li>
+      <li>Embed or quote short excerpts (a sentence or two) from my writing with clear attribution.</li>
+    </ul>
+
+    <p style="font-weight:600; color: var(--red-text); margin-top: 16px; margin-bottom: 6px;">❌ Not Permitted</p>
+    <ul>
+      <li>Downloading and reposting my photographs from this site anywhere without permission.</li>
+      <li>Reproducing full blog posts or articles on other platforms, even with attribution, without permission.</li>
+      <li>Using any of my content for commercial purposes without a written agreement.</li>
+      <li>Claiming any content on this site as your own.</li>
+      <li>Training AI or machine learning models on my photography, writing, or code without explicit permission.</li>
+      <li>Scraping this site's content using automated tools.</li>
+    </ul>
+
+    <div class="danger">
+      Any unauthorised use, reproduction, or commercial exploitation of content from this site may constitute copyright infringement. I reserve the right to pursue appropriate action under Indian and international copyright law.
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="section" id="s7">
+    <p class="section-num">Section 07</p>
+    <h2>Reporting Misuse</h2>
+    <p>If you come across my content — photography, writing, or code — being used somewhere without proper credit or authorisation, I genuinely appreciate a heads-up. It helps me protect my work.</p>
+    <p>Please email me at <a href="mailto:raghavendra.konkathi@gmail.com" class="inline">raghavendra.konkathi@gmail.com</a> with the subject line <em>"Content Misuse Report"</em> and include a link to where you found the content being misused. I will follow up promptly.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="section" id="s8">
+    <p class="section-num">Section 08</p>
+    <h2>AI-Generated Content Disclosure</h2>
+    <p>In the interest of full transparency: as of the effective date of this document, <strong>no photographs or visual media on this site have been generated using AI image tools</strong> (such as Midjourney, DALL·E, Stable Diffusion, or similar).</p>
+    <p>All images are real photographs taken with real cameras by a real person — me.</p>
+    <p>If this ever changes — for example, if I use an AI tool to generate an illustration or graphic — it will be clearly labelled as AI-generated wherever it appears on the site. I commit to never presenting AI-generated media as my own original photography.</p>
+    <div class="highlight">
+      I may use AI writing assistants for editing or grammar checking on occasion. The ideas, research, structure, and substance of all written content remain my own.
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="section" id="s9">
+    <p class="section-num">Section 09</p>
+    <h2>Affiliate and Sponsorship Disclosure</h2>
+    <p>As of the effective date of this document, this website contains <strong>no affiliate links, sponsored content, or paid promotions</strong> of any kind.</p>
+    <p>If I recommend a tool, product, service, or resource anywhere on this site, it is because I have personally used it and found it useful — not because I am being compensated for the mention.</p>
+    <p>Should this ever change, any sponsored or affiliated content will be clearly and prominently disclosed at the top of the relevant page or post in accordance with applicable advertising standards.</p>
+  </div>
+
+  <!-- 10 -->
+  <div class="section" id="s10">
+    <p class="section-num">Section 10</p>
+    <h2>Personal Opinion Disclosure</h2>
+    <p>All opinions expressed on this site — in blog posts, project write-ups, the homepage, and anywhere else — are entirely my own personal views. They do not represent the views of any current or past employer, client, institution, or organisation I have been affiliated with.</p>
+    <p>Technical content (tutorials, guides, how-tos) reflects my personal understanding and experience at the time of writing. It is shared in good faith as a learning resource, not as professional or certified technical advice. Always verify critical technical decisions against official documentation.</p>
+  </div>
+
+  <!-- 11 -->
+  <div class="section" id="s11">
+    <p class="section-num">Section 11</p>
+    <h2>Contact</h2>
+    <p>For any questions about this disclosure, requests to use my content, or to report misuse:</p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:raghavendra.konkathi@gmail.com" class="inline">raghavendra.konkathi@gmail.com</a></li>
+      <li><strong>Location:</strong> Hyderabad, Telangana, India</li>
+    </ul>
+    <p>I aim to respond within 14 calendar days.</p>
+  </div>
+
+  <!-- Signature block -->
+  <div class="signature-block">
+    <p class="sig-label">Declared by</p>
+    <p class="sig-name">Raghavendra Konkathi</p>
+    <p class="sig-detail">Developer · Photographer · Designer</p>
+    <p class="sig-detail">Hyderabad, Telangana, India</p>
+    <p class="sig-detail" style="margin-top: 8px;">Effective: May 25, 2026</p>
+  </div>
+<div class="back-home">
+    <a href="index.html" class="back-home-link">
+        ← Back to Homepage
+    </a>
+</div>
+  <div class="doc-footer">
+    <span class="doc-footer-name">Raghavendra Konkathi</span>
+    <span class="doc-footer-note">Effective May 25, 2026 · Personal Portfolio Site</span>
+  </div>
+
+</div>
+</body>
+</html>

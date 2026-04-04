@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects — Raghavendra Konkathi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #3e4774;
+      --surface: #16131e;
+      --surface2: #1e1a2a;
+      --border: rgba(255,255,255,0.07);
+      --border-hover: rgba(255,255,255,0.15);
+      --text: #f0edf8;
+      --text-mid: #ffecdc;
+      --text-dim: #e4ddff;
+      --accent: #a78bda;
+      --accent-glow: rgba(167,139,218,0.18);
+      --accent-deep: #90a03f;
+      --tag-bg: rgba(167,139,218,0.1);
+      --tag-border: rgba(167,139,218,0.25);
+      --green: #5eead4;
+      --green-bg: rgba(94,234,212,0.08);
+      --orange: #fb923c;
+      --orange-bg: rgba(251,146,60,0.08);
+      --blue: #60a5fa;
+      --blue-bg: rgba(96,165,250,0.08);
+      --red: #f87171;
+      --red-bg: rgba(248,113,113,0.08);
+      --yellow: #fbbf24;
+      --yellow-bg: rgba(251,191,36,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Instrument Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* grain overlay */
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 1;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(2, 22, 147, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-link {
+      font-size: 1rem;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--text); }
+
+    .nav-cta {
+      font-size: 1rem;
+      font-weight: 500;
+      color: yellow;
+      border: 3px solid rgb(0, 206, 3);
+      padding: 6px 14px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--tag-bg); }
+
+    /* ── PAGE WRAP ── */
+    .page {
+      position: relative; z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 28px 100px;
+    }
+
+    /* ── HERO HEADER ── */
+    .hero {
+      padding: 72px 0 56px;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgb(255, 202, 112);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-title {
+      font-family: 'Jockey One', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 8rem);
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.0;
+      letter-spacing: 0.03em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--text-mid);
+      font-family: 'Instrument Sans', sans-serif;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      max-width: 520px;
+      line-height: 1.65;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      font-family: "Anta", system-ui;
+      color: var(--text-dim);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    .hero-divider {
+      height: 1px;
+      background: var(--border);
+      margin-top: 48px;
+    }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 24px 0;
+      flex-wrap: wrap;
+    }
+
+    .filter-label {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-right: 4px;
+    }
+
+    .filter-btn {
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-mid);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--tag-bg);
+    }
+
+    /* ── PROJECT CARDS ── */
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: riseIn 0.6s ease forwards;
+    }
+
+    .project-card:nth-child(1) { animation-delay: 0.05s; }
+    .project-card:nth-child(2) { animation-delay: 0.15s; }
+    .project-card:nth-child(3) { animation-delay: 0.25s; }
+    .project-card:nth-child(4) { animation-delay: 0.35s; }
+    .project-card:nth-child(5) { animation-delay: 0.45s; }
+
+    @keyframes riseIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .project-card:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 12px 48px rgba(0,0,0,0.4), 0 0 0 1px var(--border-hover);
+    }
+
+    /* card inner layout */
+    .card-inner {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      min-height: 280px;
+    }
+
+    /* LEFT: content */
+    .card-content {
+      padding: 36px 36px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-top {}
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .proj-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--text-dim);
+    }
+
+    .status-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .status-dot.live { background: var(--green); box-shadow: 0 0 6px var(--green); }
+    .status-dot.wip  { background: var(--yellow); box-shadow: 0 0 6px var(--yellow); }
+    .status-dot.published { background: var(--blue); box-shadow: 0 0 6px var(--blue); }
+
+    .status-text {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .status-text.live { color: var(--green); }
+    .status-text.wip  { color: var(--yellow); }
+    .status-text.published { color: var(--blue); }
+
+    .card-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      max-width: 480px;
+    }
+
+    /* card bottom */
+    .card-bottom {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 4px 11px;
+      border-radius: 20px;
+      border: 1px solid var(--tag-border);
+      color: var(--accent);
+      background: var(--tag-bg);
+      letter-spacing: 0.03em;
+    }
+
+    .tag.tech {
+      border-color: rgba(255,255,255,0.08);
+      color: var(--text-mid);
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* action buttons */
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 7px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0e0c12;
+    }
+    .btn-primary:hover {
+      background: #c4abee;
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.05);
+      color: var(--text-mid);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      border-color: var(--border-hover);
+    }
+
+    /* RIGHT: image */
+    .card-image {
+      position: relative;
+      overflow: hidden;
+      border-left: 1px solid var(--border);
+      background: var(--surface2);
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease, filter 0.5s ease;
+      filter: brightness(0.88) saturate(0.9);
+    }
+
+    .project-card:hover .card-image img {
+      transform: scale(1.04);
+      filter: brightness(0.96) saturate(1.05);
+    }
+
+    /* image overlay label */
+    .img-label {
+      position: absolute;
+      top: 14px; right: 14px;
+      background: rgba(14,12,18,0.75);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-size: 0.7rem;
+      color: var(--text-mid);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* placeholder when no image */
+    .card-image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+    }
+
+    .placeholder-icon {
+      font-size: 2.4rem;
+      opacity: 0.4;
+    }
+
+    /* accent strip at top of each card */
+    .card-accent-strip {
+      height: 2px;
+      width: 100%;
+    }
+
+    /* ── FEATURED CARD (first project — full width hero style) ── */
+    .project-card.featured .card-inner {
+      grid-template-columns: 1fr 460px;
+      min-height: 340px;
+    }
+
+    .project-card.featured .card-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      margin-top: 48px;
+      background: rgb(21, 0, 66);
+      border: 1px solid var(--border);
+      border-radius: 55px;
+      padding: 44px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .cta-text {}
+
+    .cta-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+
+    .cta-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .cta-desc {
+      font-size: 0.875rem;
+      color: var(--text-mid);
+      max-width: 400px;
+      line-height: 1.6;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 10px;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    .btn-cta-primary {
+      background: var(--accent);
+      color: #0e0c12;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 11px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-cta-primary:hover { background: #c4abee; }
+
+    .btn-cta-ghost {
+      background: transparent;
+      color: var(--text-mid);
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 11px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-cta-ghost:hover { color: var(--text); border-color: var(--border-hover); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 820px) {
+      .card-inner,
+      .project-card.featured .card-inner {
+        grid-template-columns: 1fr;
+      }
+      .card-image {
+        height: 220px;
+        border-left: none;
+        border-top: 1px solid var(--border);
+      }
+      .card-content { padding: 24px 20px 20px; }
+      .cta-section { padding: 28px 24px; }
+      .hero-title { font-size: 2.4rem; }
+      .nav-right .nav-link { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .page { padding: 0 16px 80px; }
+      nav { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand">Raghav's Home</a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="experience.html" class="nav-link">Experience</a>
+    <a href="https://github.com/raghav-konk" target="_blank" rel="noopener" class="nav-cta">GitHub ↗</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- HERO HEADER -->
+  <div class="hero">
+    <p class="hero-eyebrow">Portfolio · Work</p>
+    <h1 class="hero-title">Things I've<br/><em>actually built.</em></h1>
+    <p class="hero-sub">A collection of projects spanning web apps, mobile, infrastructure tooling, and client work. Each one shipped, learned from, and proud of.</p>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">5</span>
+        <span class="stat-label">Projects</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Live / Published</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">2</span>
+        <span class="stat-label">In Progress</span>
+      </div>
+    </div>
+
+    <div class="hero-divider"></div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <span class="filter-label">Filter</span>
+    <button class="filter-btn active" onclick="filterProjects('all', this)">All</button>
+    <button class="filter-btn" onclick="filterProjects('web', this)">Web</button>
+    <button class="filter-btn" onclick="filterProjects('mobile', this)">Mobile</button>
+    <button class="filter-btn" onclick="filterProjects('client', this)">Design</button>
+    <button class="filter-btn" onclick="filterProjects('infra', this)">Infrastructure</button>
+  </div>
+
+  <!-- PROJECT CARDS -->
+  <div class="projects-list" id="projects-list">
+
+    <!-- PROJECT 1: DIGIPIN -->
+    <div class="project-card featured" data-category="web">
+      <div class="card-accent-strip" style="background: linear-gradient(90deg, #a78bda, #60a5fa);"></div>
+      <div class="card-inner">
+        <div class="card-content">
+          <div class="card-top">
+            <div class="card-meta">
+              <span class="proj-num">01</span>
+              <span class="status-dot live"></span>
+              <span class="status-text live">Live</span>
+            </div>
+            <h2 class="card-title">DIGIPIN Coordinate Converter</h2>
+            <p class="card-desc">
+              A web app built around India's DIGIPIN initiative — converts DIGIPIN alphanumeric codes to standard latitude/longitude coordinates and vice versa. Built to make India's new postal addressing system actually usable for developers and general users alike.
+            </p>
+          </div>
+          <div class="card-bottom">
+            <div class="tag-row">
+              <span class="tag tech">React</span>
+              <span class="tag tech">JavaScript</span>
+              <span class="tag tech">MongoDB</span>
+              <span class="tag">Geolocation</span>
+              <span class="tag">Gov Initiative</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/raghav-konk/RaghavDIGIPINConv" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GitHub</a>
+              <a href="https://raghav-konk.github.io/RaghavDIGIPINConv/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Live Demo ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-image">
+          <img src="Assets/digipin finalform.gif" alt="DIGIPIN Converter demo"
+               onerror="this.parentElement.innerHTML='<div class=\'card-image-placeholder\'><span class=\'placeholder-icon\'>🗺️</span><span>DIGIPIN Converter</span></div>'"/>
+          <span class="img-label">Web App</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 2: KymeraQuizCLip -->
+    <div class="project-card" data-category="mobile">
+      <div class="card-accent-strip" style="background: linear-gradient(90deg, #fb923c, #f87171);"></div>
+      <div class="card-inner">
+        <div class="card-content">
+          <div class="card-top">
+            <div class="card-meta">
+              <span class="proj-num">02</span>
+              <span class="status-dot published"></span>
+              <span class="status-text published">Published</span>
+            </div>
+            <h2 class="card-title">Rango KymeraQuizCLip</h2>
+            <p class="card-desc">
+              A Quiz answering and study interface built for Android and Web. Designed to make studying with AI and LLM powered tools feel snappy and structured — Answer quizzes, Copy them to clipboard with one click and Paste in one go. Published on the Amazon Appstore.
+            </p>
+          </div>
+          <div class="card-bottom">
+            <div class="tag-row">
+              <span class="tag tech">React Native</span>
+              <span class="tag tech">Firebase</span>
+              <span class="tag tech">Redux</span>
+              <span class="tag">LLM-Powered</span>
+              <span class="tag">Android</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/raghav-konk/QuizAppChatGPT" target="_blank" rel="noreferrer noopener" class="btn btn-ghost">GitHub</a>
+              <a href="https://raghav-konk.github.io/QuizAppChatGPT/" target="_blank" rel="noreferrer noopener" class="btn btn-primary" style="background:#fb923c;">Live Demo ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-image">
+          <img src="Assets/KymeraQuiZCLiP.gif" alt="KymeraQuizCLip demo"
+               onerror="this.parentElement.innerHTML='<div class=\'card-image-placeholder\'><span class=\'placeholder-icon\'>🧠</span><span>KymeraQuizCLip</span></div>'"/>
+          <span class="img-label">Mobile + Web</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 3: CI School Website -->
+    <div class="project-card" data-category="client">
+      <div class="card-accent-strip" style="background: linear-gradient(90deg, #5eead4, #60a5fa);"></div>
+      <div class="card-inner">
+        <div class="card-content">
+          <div class="card-top">
+            <div class="card-meta">
+              <span class="proj-num">03</span>
+              <span class="status-dot live"></span>
+              <span class="status-text live">Published and Live</span>
+            </div>
+            <h2 class="card-title">CI School — Official Website Design and Documentation</h2>
+            <p class="card-desc">
+              Designed the official website for Challenger International School while working as a Lab Incharge and Computer Teacher.  incorporating context-appropriate vector graphics to enhance visual clarity and engagement. Handled everything — Information architecture, layout design, full front-end build, and all photography used throughout the site. A full end-to-end in-house project, live and in use.
+            </p>
+          </div>
+          <div class="card-bottom">
+            <div class="tag-row">
+              <span class="tag tech">HTML/CSS</span>
+              <span class="tag tech">JavaScript</span>
+              <span class="tag tech">Tailwind</span>
+              <span class="tag">Design Work</span>
+              <span class="tag">Photography</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://cischoolonline.in/" target="_blank" rel="noopener" class="btn btn-primary" style="background: var(--green); color: #0e0c12;">Visit Site ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-image">
+          <img src="Assets/proj3v1.gif" alt="CI School website"
+               onerror="this.parentElement.innerHTML='<div class=\'card-image-placeholder\'><span class=\'placeholder-icon\'>🏫</span><span>CI School Website</span></div>'"/>
+          <span class="img-label">Status : Live</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 4: Homelab / Networking -->
+    <div class="project-card" data-category="infra">
+      <div class="card-accent-strip" style="background: linear-gradient(90deg, #fbbf24, #fb923c);"></div>
+      <div class="card-inner">
+        <div class="card-content">
+          <div class="card-top">
+            <div class="card-meta">
+              <span class="proj-num">04</span>
+              <span class="status-dot wip"></span>
+              <span class="status-text wip">In Progress</span>
+            </div>
+            <h2 class="card-title">Personal Homelab &amp; Network Setup</h2>
+            <p class="card-desc">
+              An ongoing build — setting up a self-hosted homelab alongside my CCNA track. Includes a custom SMB file server on Linux, Plex Media Server, PoE network configuration, hand-crimped RJ45 cabling, and plans for a local Docker/K8s playground. Documented as it grows. <br> Gotta say, Everything skyrocketed after I integrated <strong>Tailscale</strong>. IMHO, It is plain magic.
+            </p>
+          </div>
+          <div class="card-bottom">
+            <div class="tag-row">
+              <span class="tag tech">Linux</span>
+              <span class="tag tech">Docker</span>
+              <span class="tag tech">Networking</span>
+              <span class="tag">CCNA Track</span>
+              <span class="tag">Self-Hosted</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://medium.com/@raghavendra.v.konkathi" target="_blank" rel="noopener" class="btn btn-ghost">Read on Medium</a>
+              <a href="https://github.com/raghav-konk" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background: var(--yellow); color: #0e0c12;">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-image">
+          <img src="Assets/homelab_300x223.png" alt="Homelab Setup"
+               onerror="this.parentElement.innerHTML='<div class=\'card-image-placeholder\'><span class=\'placeholder-icon\'>🖧</span><span>Infrastructure</span></div>'"/>
+            <span class="img-label">Infrastructure🖧</span>
+            <span>Homelab Setup</span>
+          </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 5: This Portfolio -->
+    <div class="project-card" data-category="web">
+      <div class="card-accent-strip" style="background: linear-gradient(90deg, #f87171, #a78bda);"></div>
+      <div class="card-inner">
+        <div class="card-content">
+          <div class="card-top">
+            <div class="card-meta">
+              <span class="proj-num">05</span>
+              <span class="status-dot wip"></span>
+              <span class="status-text wip">Ongoing</span>
+            </div>
+            <h2 class="card-title">This Portfolio Website</h2>
+            <p class="card-desc">
+              Built entirely from scratch — no templates, no site builders. Every section, animation, and design decision is hand-coded. The site also includes original photography, a blog section (linked to Medium), legal pages, and a contact form via Formspree. It's a living project that grows with me.
+            </p>
+          </div>
+          <div class="card-bottom">
+            <div class="tag-row">
+              <span class="tag tech">HTML/CSS</span>
+              <span class="tag tech">Vanilla JS</span>
+              <span class="tag tech">Tailwind</span>
+              <span class="tag">Vanta.js</span>
+              <span class="tag">Original Design</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/raghav-konk" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+              <a href="index.html" class="btn btn-primary">You're Here ↗</a>
+            </div>
+          </div>
+        </div>
+
+        
+<div class="card-image">
+          <img src="Assets/portfolio card.png" alt="Portfolio Card"
+               onerror="this.parentElement.innerHTML='<div class=\'card-image-placeholder\'><span class=\'placeholder-icon\'>🖧</span><span>Portfolio</span></div>'"/>
+            <span>Portfolio</span>
+
+          <span class="img-label">Web · Design · Portfolio</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /projects-list -->
+
+  <!-- CTA SECTION -->
+  <div class="cta-section">
+    <div class="cta-text">
+      <p class="cta-eyebrow">What's Next</p>
+      <h3 class="cta-title">Want to build something together?</h3>
+      <p class="cta-desc">I'm open to freelance projects, collaborations, and full-time opportunities. If something here caught your eye, let's talk.</p>
+    </div>
+    <div class="cta-buttons">
+      <a href="index.html#contact" class="btn-cta-primary">Get in Touch</a>
+      <a href="https://github.com/raghav-konk" target="_blank" rel="noopener" class="btn-cta-ghost">GitHub Profile</a>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+  function filterProjects(category, btn) {
+    // update button states
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // filter cards
+    document.querySelectorAll('.project-card').forEach(card => {
+      const cat = card.getAttribute('data-category');
+      if (category === 'all' || cat === category) {
+        card.style.display = '';
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(16px)';
+        // small re-animate
+        setTimeout(() => {
+          card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 10);
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

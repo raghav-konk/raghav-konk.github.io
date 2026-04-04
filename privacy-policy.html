@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy — Raghavendra Konkathi</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #efeef3;
+      --card: #e6f9ff;
+      --purple-deep: #2530a5;
+      --purple-mid: #3f6ba0;
+      --purple-light: #004815;
+      --purple-mist: #c3c9ff;
+      --text-dark: #6b93dd;
+      --text-mid: #3600b3;
+      --text-light: #6a77d7;
+      --border: #e5b700;
+    }
+
+    html, body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: #201b7c;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-back {
+      font-size: 1rem;
+      font-weight: 500;
+      color: yellow;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: opacity 0.2s;
+    }
+    .nav-back:hover { opacity: 0.7; }
+
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── HEADER ── */
+    .doc-header {
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .doc-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 10px;
+    }
+
+    .doc-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--purple-deep);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .doc-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    .doc-meta span {
+      background: var(--purple-mist);
+      color: var(--purple-mid);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 26px;
+      margin-bottom: 40px;
+    }
+
+    .toc-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 12px;
+    }
+
+    .toc ol {
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .toc a {
+      font-size: 0.875rem;
+      color: var(--purple-mid);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .toc a:hover { text-decoration: underline; }
+
+    /* ── SECTIONS ── */
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 30px;
+      margin-bottom: 20px;
+    }
+
+    .section-num {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      color: var(--purple-deep);
+      margin-bottom: 14px;
+    }
+
+    p {
+      font-size: 0.925rem;
+      color: var(--text-mid);
+      margin-bottom: 12px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    li {
+      font-size: 0.925rem;
+      color: var(--text-mid);
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    /* highlight box */
+    .highlight {
+      background: var(--purple-mist);
+      border-left: 3px solid var(--purple-mid);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 14px 0;
+      font-size: 0.9rem;
+      color: var(--purple-deep);
+      font-weight: 500;
+    }
+
+    /* inline link */
+    a.inline {
+      color: var(--purple-mid);
+      font-weight: 500;
+    }
+    a.inline:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    .doc-footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .doc-footer-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.95rem;
+      color: var(--purple-deep);
+    }
+
+    .doc-footer-note {
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 560px) {
+      .section { padding: 20px 18px; }
+    }
+
+    
+    .back-home {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+.back-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #d1ced6;
+  background: #6335c4;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(59,31,110,0.08);
+}
+
+    /* ── LEGAL NAV ── */
+    .legal-nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .legal-nav a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 20px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      color: var(--text-mid);
+      background: var(--card);
+      transition: all 0.2s;
+    }
+
+    .legal-nav a:hover,
+    .legal-nav a.active {
+      background: var(--purple-mist);
+      color: var(--purple-mid);
+      border-color: var(--purple-light);
+    }
+
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Raghav's Home</a>
+  <a href="index.html" class="nav-back">← Back to Site</a>
+</nav>
+
+<div class="page">
+
+  <div class="doc-header">
+    <p class="doc-eyebrow">Legal · Privacy</p>
+    <h1 class="doc-title">Privacy Policy</h1>
+    <div class="doc-meta">
+      <span>Effective: May 25, 2026</span>
+      <span>Last updated: May 25, 2026</span>
+      <span>Site: raghavendra.dev</span>
+    </div>
+  </div>
+  <!-- Legal nav -->
+  <div class="legal-nav">
+    <a href="privacy-policy.html" class="active">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="disclosure.html" >Disclosure &amp; Self-Declaration</a>
+  </div>
+  <!-- TOC -->
+  <div class="toc">
+    <p class="toc-title">Contents</p>
+    <ol>
+      <li><a href="#s1">Who I am</a></li>
+      <li><a href="#s2">What data is collected</a></li>
+      <li><a href="#s3">How data is collected</a></li>
+      <li><a href="#s4">Why I collect it</a></li>
+      <li><a href="#s5">Third-party services</a></li>
+      <li><a href="#s6">Cookies and tracking</a></li>
+      <li><a href="#s7">How long data is kept</a></li>
+      <li><a href="#s8">Your rights</a></li>
+      <li><a href="#s9">Children's privacy</a></li>
+      <li><a href="#s10">Changes to this policy</a></li>
+      <li><a href="#s11">Contact</a></li>
+    </ol>
+  </div>
+
+  <div class="highlight">
+    Plain-language summary: This is a personal portfolio website. I don't run ads, I don't sell data, and I don't track you beyond what's strictly needed to keep the site functional and respond to messages you send me.
+  </div>
+
+  <!-- 1 -->
+  <div class="section" id="s1">
+    <p class="section-num">Section 01</p>
+    <h2>Who I Am</h2>
+    <p>This website is owned and operated by <strong>Raghavendra Konkathi</strong>, an individual developer and designer based in Hyderabad, India. It is a personal portfolio site and is not associated with any company or commercial entity.</p>
+    <p>If you have any privacy-related questions, you can reach me directly at <a href="mailto:raghavendra.konkathi@gmail.com" class="inline">raghavendra.konkathi@gmail.com</a>.</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="section" id="s2">
+    <p class="section-num">Section 02</p>
+    <h2>What Data Is Collected</h2>
+    <p>This site collects only what is necessary. Specifically:</p>
+    <ul>
+      <li><strong>Contact form submissions</strong> — your name, organisation, email address, and the message you write.</li>
+      <li><strong>Basic server/access logs</strong> — depending on the hosting provider, standard web server logs (IP address, browser type, pages visited, timestamps) may be recorded automatically. I do not actively review or store these myself.</li>
+    </ul>
+    <p>I do <strong>not</strong> collect payment information, government IDs, or any sensitive personal data of any kind.</p>
+  </div>
+
+  <!-- 3 -->
+  <div class="section" id="s3">
+    <p class="section-num">Section 03</p>
+    <h2>How Data Is Collected</h2>
+    <p>Data is collected in two ways:</p>
+    <ul>
+      <li><strong>Actively</strong> — when you voluntarily fill in and submit the contact form on this site.</li>
+      <li><strong>Passively</strong> — standard HTTP server logs generated by your browser when you visit any webpage. This is standard behaviour of all web servers and not something specific to this site.</li>
+    </ul>
+    <p>There are no hidden forms, tracking pixels, or background data collection scripts on this site.</p>
+  </div>
+
+  <!-- 4 -->
+  <div class="section" id="s4">
+    <p class="section-num">Section 04</p>
+    <h2>Why I Collect It</h2>
+    <p>The only reason data is collected is to:</p>
+    <ul>
+      <li>Receive and respond to messages you send through the contact form.</li>
+      <li>Follow up on collaboration, job, or project enquiries.</li>
+    </ul>
+    <p>Your data is never used for marketing, profiling, or sold to any third party. Ever.</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="section" id="s5">
+    <p class="section-num">Section 05</p>
+    <h2>Third-Party Services</h2>
+    <p>This site uses the following third-party services. Each has its own privacy policy which governs how they handle data on their end:</p>
+    <ul>
+      <li>
+        <strong>Formspree</strong> — handles contact form submissions. When you submit the form, your data is sent to Formspree's servers, checked for spam, and then forwarded to my email. Formspree may temporarily store your submission.
+        <br/>→ <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener" class="inline">Formspree Privacy Policy</a>
+      </li>
+      <li>
+        <strong>Google Fonts</strong> — fonts are loaded from Google's CDN. This may result in Google receiving your IP address as part of a standard font request.
+        <br/>→ <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="inline">Google Privacy Policy</a>
+      </li>
+      <li>
+        <strong>Unsplash</strong> — the Photography section links to my Unsplash profile. If you click through to Unsplash, their own privacy policy applies.
+        <br/>→ <a href="https://unsplash.com/privacy" target="_blank" rel="noopener" class="inline">Unsplash Privacy Policy</a>
+      </li>
+      <li>
+        <strong>Medium</strong> — the Blog section links out to Medium. If you click through, Medium's own privacy policy applies.
+      </li>
+    </ul>
+    <div class="highlight">
+      I do not integrate advertising networks, affiliate trackers, or analytics platforms (such as Google Analytics) on this site at this time.
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="section" id="s6">
+    <p class="section-num">Section 06</p>
+    <h2>Cookies and Tracking</h2>
+    <p>This site does <strong>not</strong> use first-party cookies, tracking cookies, or any form of local storage to identify or follow visitors.</p>
+    <p>Third-party scripts loaded on this page (such as Google Fonts or Vanta.js via CDN) may set their own cookies or make network requests as a side effect of loading. These are outside my direct control. If you are concerned about this, a browser extension that blocks third-party scripts (such as uBlock Origin) will prevent this.</p>
+    <p>No cookie consent banner is shown on this site because no tracking or analytics cookies are set by me directly.</p>
+  </div>
+
+  <!-- 7 -->
+  <div class="section" id="s7">
+    <p class="section-num">Section 07</p>
+    <h2>How Long Data Is Kept</h2>
+    <p>Contact form submissions forwarded to my email are retained for as long as they are relevant to an ongoing conversation or enquiry. Once the matter is resolved and there is no further reason to keep it, the email is deleted.</p>
+    <p>Formspree may retain submission data on their end for a period defined in their own policy. You can contact Formspree directly to request deletion of your submission from their servers.</p>
+    <p>I do not maintain a separate database of contact submissions on my end.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="section" id="s8">
+    <p class="section-num">Section 08</p>
+    <h2>Your Rights</h2>
+    <p>Regardless of where you are located, you have the following rights with respect to any personal data you have submitted to me:</p>
+    <ul>
+      <li><strong>Right to access</strong> — you can ask me what information I hold about you.</li>
+      <li><strong>Right to correction</strong> — you can ask me to correct inaccurate data.</li>
+      <li><strong>Right to deletion</strong> — you can ask me to delete any data you submitted. I will comply promptly.</li>
+      <li><strong>Right to withdraw consent</strong> — you can ask me to stop using your data for any purpose at any time.</li>
+    </ul>
+    <p>To exercise any of these rights, email me at <a href="mailto:raghavendra.konkathi@gmail.com" class="inline">raghavendra.konkathi@gmail.com</a> with the subject line <em>"Privacy Request"</em>. I will respond within 14 days.</p>
+    <p>If you are based in the EU/EEA, you also have rights under the GDPR, including the right to lodge a complaint with a supervisory authority. If you are based in India, the Digital Personal Data Protection Act (DPDPA) 2023 governs your rights.</p>
+  </div>
+
+  <!-- 9 -->
+  <div class="section" id="s9">
+    <p class="section-num">Section 09</p>
+    <h2>Children's Privacy</h2>
+    <p>This website is not directed at children under the age of 13. I do not knowingly collect personal data from anyone under 13. If you believe a child has submitted their information through this site, please contact me immediately and I will delete it.</p>
+  </div>
+
+  <!-- 10 -->
+  <div class="section" id="s10">
+    <p class="section-num">Section 10</p>
+    <h2>Changes to This Policy</h2>
+    <p>As this site evolves — for example, if analytics or new third-party services are added — this policy will be updated to reflect those changes. The "Last updated" date at the top of this page will always reflect the most recent revision.</p>
+    <p>Since this is a personal site without a user account system, I cannot notify you directly of changes. It is your responsibility to review this page periodically if you are concerned about how your data is handled.</p>
+  </div>
+
+  <!-- 11 -->
+  <div class="section" id="s11">
+    <p class="section-num">Section 11</p>
+    <h2>Contact</h2>
+    <p>For any privacy-related questions, requests, or concerns, please reach out:</p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:raghavendra.konkathi@gmail.com" class="inline">raghavendra.konkathi@gmail.com</a></li>
+      <li><strong>Location:</strong> Hyderabad, Telangana, India</li>
+    </ul>
+    <p>I aim to respond to all privacy requests within 14 calendar days.</p>
+  </div>
+
+  <div class="doc-footer">
+    <span class="doc-footer-name">Raghavendra Konkathi</span>
+    <span class="doc-footer-note">Effective May 25, 2026 · Personal Portfolio Site</span>
+  </div>
+  <div class="back-home">
+    <a href="index.html" class="back-home-link">
+        ← Back to Homepage
+    </a>
+</div>
+
+</div>
+</body>
+</html>
