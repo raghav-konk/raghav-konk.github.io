@@ -2,143 +2,531 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Resume</title>
-
+  <title>Resume — Raghavendra Konkathi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f3f4f6;
-      color: #111827;
+    /* ─── Variables ──────────────────────────────────────── */
+    :root {
+      --purple-deep:  #2e2075;
+      --purple-mid:   #5b4fcf;
+      --purple-light: #edeaff;
+      --gold:         #f0b429;
+      --gold-pale:    #fff8e1;
+      --text:         #1a1535;
+      --text-muted:   #7c71a8;
+      --border:       #dcd7f5;
+      --bg:           #f6f4ff;
+      --surface:      #ffffff;
+      --radius:       14px;
+      --header-h:     60px;
+      --tab-bar-h:    56px;
+      --bottom-bar-h: 68px;
     }
 
-    /* Top bar */
-    .header {
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    @keyframes fadeout { to { opacity: 0; } }
+
+
+    /* ═══════════════════════════════════════════════════════
+       DESKTOP  (≥ 721px)
+    ═══════════════════════════════════════════════════════ */
+    .page {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .desktop-header {
+      height: var(--header-h);
+      flex-shrink: 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 24px;
-      background: rgb(215, 32, 32);
-      color: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      padding: 0 28px;
+      background: var(--surface);
+      border-bottom: 1.5px solid var(--border);
+      box-shadow: 0 2px 20px rgba(46,32,117,.06);
+      z-index: 20;
     }
 
-    .title {
-      font-size: 1.2rem;
-      font-weight: 600;
+    .hd-left { display: flex; align-items: center; gap: 12px; }
+
+    .back-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px;
+      border-radius: 9px; border: 1.5px solid var(--border);
+      color: var(--purple-mid); text-decoration: none;
+      transition: background .15s, border-color .15s;
     }
+    .back-btn:hover { background: var(--purple-light); border-color: var(--purple-mid); }
+
+    .hd-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.08rem; color: var(--purple-deep);
+    }
+    .hd-title sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem; font-weight: 400;
+      color: var(--text-muted);
+      vertical-align: middle; margin-left: 6px;
+    }
+
+    .hd-actions { display: flex; gap: 9px; }
 
     .btn {
-      padding: 8px 16px;
-      background: #4f46e5;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      transition: 0.2s ease;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 15px; border-radius: 9px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem; font-weight: 500;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #f5c842, #f0a020);
+      color: #3b2500; box-shadow: 0 2px 10px rgba(240,164,32,.3);
+    }
+    .btn-gold:hover { box-shadow: 0 4px 18px rgba(240,164,32,.45); }
+
+    .btn-purple {
+      background: var(--purple-deep); color: #fff;
+      box-shadow: 0 2px 10px rgba(46,32,117,.25);
+    }
+    .btn-purple:hover { background: var(--purple-mid); box-shadow: 0 4px 18px rgba(91,79,207,.35); }
+
+    .pdf-row {
+      flex: 1; min-height: 0;
+      display: flex; gap: 12px;
+      padding: 14px; background: var(--bg);
     }
 
-    .btn:hover {
-      background: #4338ca;
+    .pdf-panel {
+      flex: 1; min-width: 0;
+      display: flex; flex-direction: column;
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: 0 4px 24px rgba(46,32,117,.1);
+      border: 1.5px solid var(--border);
+      background: var(--surface);
     }
 
-    /* Viewer section */
-    .container {
+    .panel-tab {
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 16px;
+      font-size: 0.76rem; font-weight: 500;
+      letter-spacing: .05em; text-transform: uppercase;
+    }
+    .panel-tab-glam    { background: var(--gold-pale); border-bottom: 1.5px solid #f5c842; color: #7a4f00; }
+    .panel-tab-minimal { background: var(--purple-light); border-bottom: 1.5px solid var(--border); color: var(--purple-deep); }
+
+    .tab-pill { display: inline-flex; align-items: center; gap: 7px; }
+    .tab-dot  { width: 7px; height: 7px; border-radius: 50%; }
+    .panel-tab-glam    .tab-dot { background: #f0a020; }
+    .panel-tab-minimal .tab-dot { background: var(--purple-mid); }
+
+    .tab-open {
+      font-size: 0.71rem; font-weight: 500;
+      text-decoration: none; opacity: .65; transition: opacity .15s;
+    }
+    .panel-tab-glam    .tab-open { color: #7a4f00; }
+    .panel-tab-minimal .tab-open { color: var(--purple-deep); }
+    .tab-open:hover { opacity: 1; text-decoration: underline; }
+
+    .iframe-wrap { flex: 1; min-height: 0; position: relative; }
+    .iframe-wrap iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      border: none; display: block;
+    }
+
+    /* ATS nudge banner */
+    .ats-nudge {
+      flex-shrink: 0;
       display: flex;
-      justify-content: center;
-      padding: 30px 16px;
-    }
-
-    .pdf-wrapper {
-      width: 100%;
-      max-width: 900px;
-      height: 85vh;
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* Fallback text */
-    .fallback {
-      text-align: center;
-      margin-top: 1px;
-      font-size: 1rem;
-      color: #6b7280;
-    }
-
-    .fallback a {
-      color: #4f46e5;
-      text-decoration: none;
-    }
-
-    .fallback a:hover {
-      text-decoration: underline;
-    }
-    .doc-footer {
-      margin-top: 48px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
+      justify-content: space-between;
       gap: 10px;
-    }
-
-    .doc-footer-name {
-      font-family: 'DM Serif Display', serif;
-      font-size: 0.95rem;
+      padding: 8px 16px;
+      background: var(--purple-light);
+      border-bottom: 1px dashed var(--border);
+      font-size: 0.75rem;
       color: var(--purple-deep);
     }
+    .ats-nudge-text { display: flex; align-items: center; gap: 7px; }
+    .ats-nudge-text span { opacity: 0.75; font-size: 0.9rem; }
+    .ats-nudge-link {
+      flex-shrink: 0;
+      font-size: 0.72rem; font-weight: 500;
+      color: var(--purple-mid); text-decoration: none;
+      padding: 3px 9px;
+      border: 1px solid var(--purple-mid);
+      border-radius: 6px; opacity: 0.8;
+      transition: opacity .15s, background .15s, color .15s;
+      white-space: nowrap;
+    }
+    .ats-nudge-link:hover { opacity: 1; background: var(--purple-mid); color: #fff; }
 
-    .doc-footer-note {
-      font-size: 0.78rem;
-      color: var(--text-light);
+    .zoom-hint {
+      position: absolute; bottom: 14px; left: 50%;
+      transform: translateX(-50%); z-index: 5;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 13px;
+      background: rgba(26,21,53,.76);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      border-radius: 999px; color: rgba(255,255,255,.9);
+      font-size: 0.7rem; pointer-events: none; white-space: nowrap;
+      animation: fadeout .4s ease 4s forwards;
+    }
+    .pdf-panel:hover .zoom-hint { animation: none; opacity: 1; }
+    .zoom-hint kbd {
+      font-family: 'DM Sans', sans-serif; font-size: 0.66rem;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 4px; padding: 1px 5px;
+    }
+
+    .desktop-footer {
+      flex-shrink: 0; height: 52px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px;
+      background: var(--surface); border-top: 1.5px solid var(--border);
+    }
+    .footer-name { font-family: 'DM Serif Display', serif; font-size: 0.88rem; color: var(--purple-deep); }
+    .footer-note { font-size: 0.72rem; color: var(--text-muted); }
+
+    .mobile-only { display: none !important; }
+
+
+    /* ═══════════════════════════════════════════════════════
+       MOBILE  (≤ 720px)
+    ═══════════════════════════════════════════════════════ */
+    @media (max-width: 720px) {
+      html, body { overflow: hidden; }
+
+      .desktop-header,
+      .pdf-row,
+      .desktop-footer { display: none !important; }
+
+      .mobile-only { display: flex !important; }
+
+      /* Shell */
+      .m-shell {
+        position: fixed; inset: 0;
+        flex-direction: column;
+        background: var(--bg);
+      }
+
+      /* Top bar */
+      .m-topbar {
+        flex-shrink: 0; height: var(--header-h);
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 0 16px;
+        background: var(--surface);
+        border-bottom: 1.5px solid var(--border);
+        box-shadow: 0 2px 14px rgba(46,32,117,.07);
+        z-index: 20;
+      }
+
+      .m-back {
+        display: flex; align-items: center; justify-content: center;
+        width: 36px; height: 36px; flex-shrink: 0;
+        border-radius: 10px; border: 1.5px solid var(--border);
+        color: var(--purple-mid); text-decoration: none;
+      }
+
+      .m-title {
+        font-family: 'DM Serif Display', serif;
+        font-size: 1rem; color: var(--purple-deep);
+        text-align: center; flex: 1; padding: 0 10px; line-height: 1.25;
+      }
+      .m-title small {
+        display: block; font-family: 'DM Sans', sans-serif;
+        font-size: 0.67rem; font-weight: 400; color: var(--text-muted); margin-top: 1px;
+      }
+
+      .m-open-btn {
+        display: flex; align-items: center; justify-content: center;
+        width: 36px; height: 36px; flex-shrink: 0;
+        border-radius: 10px; border: 1.5px solid var(--border);
+        color: var(--purple-mid); text-decoration: none;
+        transition: background .15s;
+      }
+      .m-open-btn:active { background: var(--purple-light); }
+
+      /* Tab switcher */
+      .m-tabs {
+        flex-shrink: 0; height: var(--tab-bar-h);
+        display: flex; align-items: center;
+        padding: 8px 12px; gap: 8px;
+        background: var(--surface);
+        border-bottom: 1.5px solid var(--border);
+      }
+
+      .m-tab {
+        flex: 1; height: 38px;
+        display: flex; align-items: center; justify-content: center; gap: 7px;
+        border-radius: 10px; border: 1.5px solid transparent;
+        font-family: 'DM Sans', sans-serif; font-size: 0.84rem; font-weight: 500;
+        cursor: pointer; transition: all .2s;
+        background: var(--bg); color: var(--text-muted);
+      }
+
+      .m-tab-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+      .m-tab[data-tab="glam"].active    { background: var(--gold-pale); border-color: var(--gold); color: #7a4f00; }
+      .m-tab[data-tab="glam"]    .m-tab-dot { background: #f0a020; }
+      .m-tab[data-tab="minimal"].active { background: var(--purple-light); border-color: var(--purple-mid); color: var(--purple-deep); }
+      .m-tab[data-tab="minimal"] .m-tab-dot { background: var(--purple-mid); }
+
+      /* Viewer */
+      .m-viewer { flex: 1; min-height: 0; position: relative; overflow: hidden; }
+
+      .m-pane {
+        position: absolute; inset: 0;
+        opacity: 0; pointer-events: none;
+        transition: opacity .25s ease;
+      }
+      .m-pane.active { opacity: 1; pointer-events: auto; }
+      .m-pane iframe { width: 100%; height: 100%; border: none; display: block; }
+
+      /* Pinch hint */
+      .m-pinch-hint {
+        position: absolute; bottom: 76px; left: 50%;
+        transform: translateX(-50%); z-index: 5;
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 8px 16px;
+        background: rgba(26,21,53,.78);
+        backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        border-radius: 999px; color: rgba(255,255,255,.92);
+        font-size: 0.73rem; pointer-events: none; white-space: nowrap;
+        animation: fadeout .4s ease 4s forwards;
+      }
+
+      /* Bottom bar */
+      .m-bottombar {
+        flex-shrink: 0; height: var(--bottom-bar-h);
+        display: flex; align-items: center; gap: 10px;
+        padding: 0 12px;
+        background: var(--surface);
+        border-top: 1.5px solid var(--border);
+        box-shadow: 0 -4px 20px rgba(46,32,117,.08);
+      }
+
+      .m-dl-btn {
+        flex: 1; height: 44px;
+        display: flex; align-items: center; justify-content: center; gap: 8px;
+        border-radius: 11px;
+        font-family: 'DM Sans', sans-serif; font-size: 0.84rem; font-weight: 500;
+        text-decoration: none;
+        transition: opacity .2s, flex .25s, transform .15s;
+      }
+      .m-dl-btn:active { transform: scale(.97); }
+
+      .m-dl-glam    { background: linear-gradient(135deg,#f5c842,#f0a020); color: #3b2500; box-shadow: 0 2px 12px rgba(240,164,32,.3); }
+      .m-dl-minimal { background: var(--purple-deep); color: #fff; box-shadow: 0 2px 12px rgba(46,32,117,.25); }
+
+      .m-dl-btn.dim { flex: 0.55; opacity: 0.35; }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- Header -->
-  <div class="header">
-    <div class="title">My Resume</div>
-    <a href="Assets/Raghavendra_Resume_hyd_2026.pdf" download class="btn">
-      Download
-    </a>
-  </div>
+<!-- ═══════════════════════════════════════════════════════ DESKTOP -->
+<div class="page">
 
-  <!-- PDF Viewer -->
-  <div class="container">
-    <div class="pdf-wrapper">
-      <iframe src="Assets/Raghavendra_Resume_hyd_2026.pdf"></iframe>
+  <header class="desktop-header">
+    <div class="hd-left">
+      <a href="index.html" class="back-btn">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path d="M19 12H5M12 5l-7 7 7 7"/>
+        </svg>
+      </a>
+      <div class="hd-title">Resume <sub>Raghavendra Konkathi</sub></div>
+    </div>
+    <div class="hd-actions">
+      <a href="Assets/Raghavendra_Resume 2026.pdf" download class="btn btn-gold">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
+          <path d="M12 3v12M7 11l5 5 5-5"/><path d="M5 19h14"/>
+        </svg>
+        Download Design Heavy Version
+      </a>
+      <a href="Assets/Raghavendra_Resume_minimal_2026.pdf" download class="btn btn-purple">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
+          <path d="M12 3v12M7 11l5 5 5-5"/><path d="M5 19h14"/>
+        </svg>
+        Download Minimal Version
+      </a>
+    </div>
+  </header>
+
+  <div class="pdf-row">
+    <div class="pdf-panel">
+      <div class="panel-tab panel-tab-glam">
+        <span class="tab-pill"><span class="tab-dot"></span>Full Colour · Creative</span>
+        <a href="Assets/Raghavendra_Resume 2026.pdf" target="_blank" class="tab-open">Open ↗</a>
+      </div>
+      <div class="ats-nudge">
+        <div class="ats-nudge-text">
+          <span>💡</span>
+          Hey — an Minimal ATS-friendly, recruiter-ready version is also available.
+        </div>
+        <a href="Assets/Raghavendra_Resume_minimal_2026.pdf" target="_blank" class="ats-nudge-link">View Minimal →</a>
+      </div>
+      <div class="iframe-wrap">
+        <iframe src="Assets/Raghavendra_Resume 2026.pdf#zoom=page-width&scrollbar=1" title="Creative Resume"></iframe>
+        <div class="zoom-hint"><kbd>Ctrl</kbd> + <kbd>scroll</kbd> &nbsp;to zoom &nbsp;·&nbsp; hover to recall</div>
+      </div>
+    </div>
+    <div class="pdf-panel">
+      <div class="panel-tab panel-tab-minimal">
+        <span class="tab-pill"><span class="tab-dot"></span>Minimal · ATS-Friendly</span>
+        <a href="Assets/Raghavendra_Resume_minimal_2026.pdf" target="_blank" class="tab-open">Open ↗</a>
+      </div>
+      <div class="ats-nudge" style="background: var(--gold-pale); border-bottom: 1px dashed #f5c842; color: #7a4f00;">
+        <div class="ats-nudge-text">
+          <span>✨</span>
+          Want the full visual experience? A design-forward version is also available.
+        </div>
+        <a href="Assets/Raghavendra_Resume 2026.pdf" target="_blank" class="ats-nudge-link" style="color: #a06000; border-color: #a06000;">View Design Heavy Version →</a>
+      </div>
+      <div class="iframe-wrap">
+        <iframe src="Assets/Raghavendra_Resume_minimal_2026.pdf#zoom=page-width&scrollbar=1" title="Minimal Resume"></iframe>
+        <div class="zoom-hint"><kbd>Ctrl</kbd> + <kbd>scroll</kbd> &nbsp;to zoom &nbsp;·&nbsp; hover to recall</div>
+      </div>
     </div>
   </div>
 
-  <!-- Fallback -->
-  <div class="fallback">
-    Can't view the resume? 
-    <a href="Assets/Raghavendra_Resume_hyd_2026.pdf" target="_blank">
-      Open in new tab
+  <footer class="desktop-footer">
+    <span class="footer-name">Raghavendra Konkathi</span>
+    <span class="footer-note">Effective May 25, 2026 · raghavendra.dev</span>
+  </footer>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ MOBILE -->
+<div class="m-shell mobile-only" id="mShell">
+
+  <div class="m-topbar">
+    <a href="index.html" class="m-back">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+        <path d="M19 12H5M12 5l-7 7 7 7"/>
+      </svg>
+    </a>
+    <div class="m-title">
+      Resume
+      <small>Raghavendra Konkathi</small>
+    </div>
+    <a href="Assets/Raghavendra_Resume 2026.pdf" target="_blank" class="m-open-btn" id="mOpenBtn">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+        <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+      </svg>
     </a>
   </div>
 
- <div class="doc-footer">
-    <span class="doc-footer-name">Raghavendra Konkathi</span>
-    <span class="doc-footer-note">Effective May 25, 2026 · Personal Portfolio Site</span>
+  <div class="m-tabs">
+    <button class="m-tab active" data-tab="glam" onclick="switchTab('glam')">
+      <span class="m-tab-dot"></span>✦ Design Heavy Version
+    </button>
+    <button class="m-tab" data-tab="minimal" onclick="switchTab('minimal')">
+      <span class="m-tab-dot"></span>Minimal
+    </button>
   </div>
+
+  <div class="m-viewer">
+    <div class="m-pane active" id="pane-glam">
+      <div class="ats-nudge">
+        <div class="ats-nudge-text">
+          <span>💡</span>
+          ATS-friendly version also available.
+        </div>
+        <a onclick="switchTab('minimal')" class="ats-nudge-link" style="cursor:pointer;">Switch →</a>
+      </div>
+      <iframe src="Assets/Raghavendra_Resume 2026.pdf#zoom=page-width&scrollbar=1" title="Creative Resume" style="height: calc(100% - 37px);"></iframe>
+      <div class="m-pinch-hint">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path d="M8.5 14.5s-.5-1-1.5-2-1-2.5 0-3.5 2.5 0 3 1l.5 1m4.5 3s.5-1 1.5-2 1-2.5 0-3.5-2.5 0-3 1l-.5 1"/>
+          <path d="M6 18l1.5-3.5L12 16l4.5-1.5L18 18"/>
+        </svg>
+        Pinch to zoom
+      </div>
+    </div>
+    <div class="m-pane" id="pane-minimal">
+      <div class="ats-nudge" style="background: var(--gold-pale); border-bottom: 1px dashed #f5c842; color: #7a4f00;">
+        <div class="ats-nudge-text">
+          <span>✨</span>
+          A design-forward version is also available.
+        </div>
+        <a onclick="switchTab('glam')" class="ats-nudge-link" style="cursor:pointer; color: #a06000; border-color: #a06000;">Switch →</a>
+      </div>
+      <iframe src="Assets/Raghavendra_Resume_minimal_2026.pdf#zoom=page-width&scrollbar=1" title="Minimal Resume" style="height: calc(100% - 37px);"></iframe>
+      <div class="m-pinch-hint">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path d="M8.5 14.5s-.5-1-1.5-2-1-2.5 0-3.5 2.5 0 3 1l.5 1m4.5 3s.5-1 1.5-2 1-2.5 0-3.5-2.5 0-3 1l-.5 1"/>
+          <path d="M6 18l1.5-3.5L12 16l4.5-1.5L18 18"/>
+        </svg>
+        Pinch to zoom
+      </div>
+    </div>
+  </div>
+
+  <div class="m-bottombar">
+    <a href="Assets/Raghavendra_Resume 2026.pdf" download class="m-dl-btn m-dl-glam" id="dlGlam">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+        <path d="M12 3v12M7 11l5 5 5-5"/><path d="M5 19h14"/>
+      </svg>
+      Download Design Heavy Version
+    </a>
+    <a href="Assets/Raghavendra_Resume_minimal_2026.pdf" download class="m-dl-btn m-dl-minimal dim" id="dlMinimal">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+        <path d="M12 3v12M7 11l5 5 5-5"/><path d="M5 19h14"/>
+      </svg>
+      Download Minimal Version
+    </a>
+  </div>
+
+</div>
+
+<script>
+  const ASSETS = {
+    glam:    'Assets/Raghavendra_Resume 2026.pdf',
+    minimal: 'Assets/Raghavendra_Resume_minimal_2026.pdf'
+  };
+
+  function switchTab(tab) {
+    document.querySelectorAll('.m-tab').forEach(el => el.classList.remove('active'));
+    document.querySelector(`.m-tab[data-tab="${tab}"]`).classList.add('active');
+
+    document.querySelectorAll('.m-pane').forEach(el => el.classList.remove('active'));
+    document.getElementById(`pane-${tab}`).classList.add('active');
+
+    document.getElementById('mOpenBtn').href = ASSETS[tab];
+
+    const dlGlam    = document.getElementById('dlGlam');
+    const dlMinimal = document.getElementById('dlMinimal');
+    if (tab === 'glam') {
+      dlGlam.classList.remove('dim');
+      dlMinimal.classList.add('dim');
+    } else {
+      dlMinimal.classList.remove('dim');
+      dlGlam.classList.add('dim');
+    }
+  }
+</script>
 
 </body>
 </html>
